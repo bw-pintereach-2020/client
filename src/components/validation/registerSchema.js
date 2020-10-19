@@ -6,6 +6,7 @@ export const registerSchema = yup.object().shape({
       .required("Please add a username.")
       .min(2, "Username should be at least 2 chars."),
     email: yup
+      .string()
       .email("Please include a valid email.")
       .required("Please include a valid email."),
     password: yup
@@ -19,5 +20,6 @@ export const registerSchema = yup.object().shape({
       ),
     passwordMatch: yup
       .string()
+      .required("Make sure passwords are matching.")
       .oneOf([yup.ref("password"), null], "Make sure passwords are matching."),
   });

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { registerSchema } from "./validation/registerSchema";
 import * as yup from "yup";
+
+import {HidePwd, ShowPwd} from './utils/appIcons.js'
 //success returns login token
 //routes user to dashboard
 
@@ -20,6 +22,7 @@ const initErr = {
 
 const Registration = () => {
   const [register, setRegister] = useState(initForm);
+  const [pwdShowing, setPwdShowing] = useState(false)
   const [locked, setLocked] = useState(true);
   const [errs, setErrs] = useState(initErr);
 
@@ -46,7 +49,14 @@ const Registration = () => {
 
   const registerAccount = (e) => {
     e.preventDefault();
-    console.log('Request Sent:', register);
+
+    const reqObj = {
+        username: register.username,
+        email: register.email,
+        password: register.password,
+      };
+
+    console.log('Request Sent:', reqObj);
   };
 
   return (
@@ -65,6 +75,7 @@ const Registration = () => {
                 onChange={handleInput}
               />
             </label>
+            { errs.username.length > 0 && <p className="err">{errs.username}</p> }
           </div>
           <div className="email">
             <label htmlFor="email">
@@ -74,33 +85,51 @@ const Registration = () => {
                 name="email"
                 value={register.email}
                 placeholder="ereader@yahoo.com"
+                aria-describedby='email-err'
                 onChange={handleInput}
               />
             </label>
+            { errs.email.length > 0 && <p className="error" id='email-err'>{errs.email}</p> }
           </div>
           <div className="pwd">
             <label htmlFor="password">
               Write a Super-Secret Password
               <input
-                type="password"
+                type={pwdShowing ? 'text':'password'}
                 name="password"
                 value={register.password}
                 placeholder="NightHowler1234!!"
                 onChange={handleInput}
               />
+              <div
+                role="button"
+                onClick={(e) => setPwdShowing(!pwdShowing)}
+                aria-label={pwdShowing ? "Hide Password" : "Show Password"}
+              >
+                {pwdShowing ? <HidePwd /> : <ShowPwd />}
+              </div>
             </label>
+            { errs.password.length > 0 && <p className="error">{errs.password}</p> }
           </div>
           <div className="pwd-match">
             <label htmlFor="passwordMatch">
               Double-Check It
               <input
-                type="password"
+                type={pwdShowing ? 'text':'password'}
                 name="passwordMatch"
                 value={register.passwordMatch}
                 placeholder="NightHowler1234!!"
                 onChange={handleInput}
               />
+              <div
+                role="button"
+                onClick={(e) => setPwdShowing(!pwdShowing)}
+                aria-label={pwdShowing ? "Hide Password" : "Show Password"}
+              >
+                {pwdShowing ? <HidePwd /> : <ShowPwd />}
+              </div>
             </label>
+            { errs.passwordMatch.length > 0 && <p className="error">{errs.passwordMatch}</p> }
           </div>
         </fieldset>
         <button disabled={locked} type="submit">
