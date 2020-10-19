@@ -1,8 +1,11 @@
 //react imports
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import Dashboard from './components/Dashboard'
+import NavBar from './components/NavBar'
 import Home from './components/Home'
+import Login from './components/Login'
+import Registration from './components/Registration'
 
 //styles
 import './styles/App.css'
@@ -11,17 +14,14 @@ import './styles/App.css'
 function App() {
   return (
     <div className='App'>
-      {/* NavBar Component Here */}
-      <BrowserRouter>
-        <Switch>
-          {/* <Route path='/login' component={Login} /> */}
-          {/* <Route path='/login' component={Register} /> */}
-          <Route path ='/dashboard' component={Dashboard} />
-          <Route exact path='/' component={Home} />
-        </Switch>
-      </BrowserRouter>
+       <NavBar/>
+       <Switch>
+         <Route exact path='/' component={Home} />
+         <Route exact path ='/dashboard' component={Dashboard} />
+         <Route exact path='/register' component={Registration} />
+         <Route exact path='/login' component={Login} />
+       </Switch>
     </div>
   )
 }
-
 export default App
