@@ -3,6 +3,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Dashboard from './components/Dashboard'
 import Home from './components/Home'
+import Registration from './components/Registration'
 
 //styles
 import './styles/App.css'
