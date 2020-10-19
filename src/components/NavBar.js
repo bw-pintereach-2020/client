@@ -9,8 +9,8 @@ export default function NavBar(){
     return (
         <ul>
             <Link to="/"><li>Home</li></Link>
-            <li>Login</li>
-            <li>Sign Up</li>
+            <Link to="/login"><li>Login</li></Link>
+            <Link to="/register"><li>Register</li></Link>
         </ul>
     );
 }

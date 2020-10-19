@@ -1,10 +1,9 @@
 //react imports
-import React from 'react'
-import { Route, Link, Switch } from 'react-router-dom'
-import Navbar from './components/NavBar'
-import Home from './components/Home'
-
-
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Navbar from './components/NavBar';
+import Home from './components/Home';
+import Login from './components/Login';
 //styles
 import './styles/App.css'
 
@@ -14,14 +13,13 @@ function App() {
     <div className='App'>
       {/* Navbar Component Here */}
       <Navbar />
-        <Switch>
-          {/* <Route path='/login' component={Login} /> */}
-          {/* <Route path='/login' component={Register} /> */}
-          {/* <PrivateRoute path='/login' component={Dashboard} /> */}
-          <Route exact path='/' component={Home} ></Route> 
-        </Switch>
+      <Switch>
+        {/* <PrivateRoute path='/login' component={Dashboard} /> */}
+        <Route path='/login' component={Login}></Route>
+        {/* <Route path='/login' component={Register} /> */}
+        <Route exact path='/' component={Home}></Route>
+      </Switch>
     </div>
   )
 }
-
 export default App
