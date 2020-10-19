@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { registerSchema } from "./validation/registerSchema";
 import * as yup from "yup";
 
-import {HidePwd, ShowPwd} from './utils/appIcons.js'
+import { HidePwd, ShowPwd } from "./utils/appIcons.js";
 //success returns login token
 //routes user to dashboard
 
@@ -22,7 +22,7 @@ const initErr = {
 
 const Registration = () => {
   const [register, setRegister] = useState(initForm);
-  const [pwdShowing, setPwdShowing] = useState(false)
+  const [pwdShowing, setPwdShowing] = useState(false);
   const [locked, setLocked] = useState(true);
   const [errs, setErrs] = useState(initErr);
 
@@ -34,16 +34,22 @@ const Registration = () => {
   }, [register]);
 
   const validateInput = (name, value) => {
-    yup
-      .reach(registerSchema, name)
-      .validate(value)
-      .then(() => setErrs({ ...errs, [name]: "" }))
-      .catch((err) => setErrs({ ...errs, [name]: err.errors[0] }));
+    if (name === "passwordMatch") {
+      value !== register.password
+        ? setErrs({ ...errs, [name]: "Passwords must be matching." })
+        : setErrs({ ...errs, [name]: "" });
+    } else {   
+        yup
+        .reach(registerSchema, name)
+        .validate(value)
+        .then(() => setErrs({ ...errs, [name]: "" }))
+        .catch((err) => setErrs({ ...errs, [name]: err.errors[0] }));
+    }
   };
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    validateInput(name, value)
+    validateInput(name, value);
     setRegister({ ...register, [name]: value });
   };
 
@@ -51,12 +57,12 @@ const Registration = () => {
     e.preventDefault();
 
     const reqObj = {
-        username: register.username,
-        email: register.email,
-        password: register.password,
-      };
+      username: register.username,
+      email: register.email,
+      password: register.password,
+    };
 
-    console.log('Request Sent:', reqObj);
+    console.log("Request Sent:", reqObj);
   };
 
   return (
@@ -72,11 +78,15 @@ const Registration = () => {
                 name="username"
                 value={register.username}
                 placeholder="easy_reader_42"
-                aria-describedby='username-error'
+                aria-describedby="username-error"
                 onChange={handleInput}
               />
             </label>
-            { errs.username.length > 0 && <p className="err" id='username-error'>{errs.username}</p> }
+            {errs.username.length > 0 && (
+              <p className="err" id="username-error">
+                {errs.username}
+              </p>
+            )}
           </div>
           <div className="email">
             <label htmlFor="email">
@@ -86,21 +96,25 @@ const Registration = () => {
                 name="email"
                 value={register.email}
                 placeholder="ereader@yahoo.com"
-                aria-describedby='email-error'
+                aria-describedby="email-error"
                 onChange={handleInput}
               />
             </label>
-            { errs.email.length > 0 && <p className="error" id='email-error'>{errs.email}</p> }
+            {errs.email.length > 0 && (
+              <p className="error" id="email-error">
+                {errs.email}
+              </p>
+            )}
           </div>
           <div className="pwd">
             <label htmlFor="password">
-              Write a Super-Secret Password
+              Make a Super-Secret Password
               <input
-                type={pwdShowing ? 'text':'password'}
+                type={pwdShowing ? "text" : "password"}
                 name="password"
                 value={register.password}
                 placeholder="NightHowler1234!!"
-                aria-describedby='password-err'
+                aria-describedby="password-err"
                 onChange={handleInput}
               />
               <div
@@ -108,20 +122,24 @@ const Registration = () => {
                 onClick={(e) => setPwdShowing(!pwdShowing)}
                 aria-label={pwdShowing ? "Hide Password" : "Show Password"}
               >
-                {pwdShowing ? <HidePwd /> : <ShowPwd />}
+                {pwdShowing ? <ShowPwd /> : <HidePwd />}
               </div>
             </label>
-            { errs.password.length > 0 && <p className="error" id='password-err'>{errs.password}</p> }
+            {errs.password.length > 0 && (
+              <p className="error" id="password-err">
+                {errs.password}
+              </p>
+            )}
           </div>
           <div className="pwd-match">
             <label htmlFor="passwordMatch">
               Double-Check It
               <input
-                type={pwdShowing ? 'text':'password'}
+                type={pwdShowing ? "text" : "password"}
                 name="passwordMatch"
                 value={register.passwordMatch}
                 placeholder="NightHowler1234!!"
-                aria-describedby='matching-password-error'
+                aria-describedby="matching-password-error"
                 onChange={handleInput}
               />
               <div
@@ -129,10 +147,14 @@ const Registration = () => {
                 onClick={(e) => setPwdShowing(!pwdShowing)}
                 aria-label={pwdShowing ? "Hide Password" : "Show Password"}
               >
-                {pwdShowing ? <HidePwd /> : <ShowPwd />}
+                {pwdShowing ? <ShowPwd /> : <HidePwd />}
               </div>
             </label>
-            { errs.passwordMatch.length > 0 && <p className="error" id='matching-password-error'>{errs.passwordMatch}</p> }
+            {errs.passwordMatch.length > 0 && (
+              <p className="error" id="matching-password-error">
+                {errs.passwordMatch}
+              </p>
+            )}
           </div>
         </fieldset>
         <button disabled={locked} type="submit">
@@ -143,4 +165,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default Registration; 
