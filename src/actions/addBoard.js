@@ -11,9 +11,11 @@ const addBoard = (board) => dispatch => {
         .post('https://pintereach1.herokuapp.com/api/boards', board, {headers: {Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQzLCJpYXQiOjE2MDMxNDM3NjEsImV4cCI6MTYwMzE1NDU2MX0.GQX4tOeafR1TYBws0bBRVi4UFN3xx7vzfeYt9ej3aSE'}})
         .then(res => {
             console.log('from inside then', res)
+            dispatch({ type: POST_BOARD_SUCCESS, payload: res.data})
         })
         .catch(err => {
             console.log('from inside post', err)
+            dispatch({ type: POST_BOARD_FAILURE, payload: err.message})
         })
 }
 
