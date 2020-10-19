@@ -1,13 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//react imports
+import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Home from './components/Home'
 
+//styles
+import './styles/App.css'
+
+//App
 function App() {
   return (
-    <div className="App">
-      <h1>Pintereach</h1>
+    <div className='App'>
+      {/* NavBar Component Here */}
+      <BrowserRouter>
+        <Switch>
+          {/* <Route path='/login' component={Login} /> */}
+          {/* <Route path='/login' component={Register} /> */}
+          {/* <PrivateRoute path='/login' component={Dashboard} /> */}
+          <Route exact path='/' component={Home} />
+        </Switch>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
