@@ -5,7 +5,7 @@
 
 import React, { useState , useEffect} from 'react';
 import * as yup from 'yup';
-import schema from '../validation/loginSchema';
+import { loginSchema } from './validation/loginSchema';
 
 const loginData = []
 
@@ -32,7 +32,7 @@ export default function Login() {
             ...formValue,
             [name]: value
         });
-        yup.reach(schema, name)
+        yup.reach(loginSchema, name)
             .validate(value)
             .then(() => {
                 setFormErrors({
@@ -60,7 +60,7 @@ export default function Login() {
 
     useEffect(() => {
         // 🔥 STEP 9- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
-        schema.isValid(formValue).then((valid) => {
+        loginSchema.isValid(formValue).then((valid) => {
             setDisabled(!valid);
         });
     }, [formValue]);
