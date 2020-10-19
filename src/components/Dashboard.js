@@ -1,3 +1,14 @@
-//landing page for user on login
-//contains view of boards and custom boards
-//user can create new board or expand boards to view saved articles
+import React from 'react'
+import Boards from './Boards'
+
+function Dashboard() {
+
+    return (
+        <div>
+            <h1>Dashboard</h1>
+            <Boards />
+        </div>
+    )
+}
+
+export default Dashboard

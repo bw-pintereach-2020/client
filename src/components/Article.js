@@ -1,3 +1,11 @@
-//single article card
-//contains article title, link, image (optional), and category
-//user can edit or delete article
+import React from 'react'
+
+function Article(props) {
+    return (
+        <div>
+            <h4>{props.article.title}</h4>
+        </div>
+    )
+}
+
+export default Article
