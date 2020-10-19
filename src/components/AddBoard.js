@@ -6,7 +6,7 @@ const initialValues = {
     private: false,  
 }
 
-function NewBoard(props) {
+function AddBoard(props) {
     const [isEditing, setIsEditing] = useState(false)
     const [values, setValues] = useState(initialValues)
 
@@ -66,4 +66,4 @@ function NewBoard(props) {
     )
 }
 
-export default NewBoard
+export default AddBoard

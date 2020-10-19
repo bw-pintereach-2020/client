@@ -1,13 +1,9 @@
-//single article card
-//contains article title, link, image (optional), and category
-//user can edit or delete article
-
 import React from 'react'
 
-function Article() {
+function Article(props) {
     return (
         <div>
-            <button>Add Article</button>
+            <h4>{props.article.title}</h4>
         </div>
     )
 }

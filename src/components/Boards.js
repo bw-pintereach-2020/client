@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Board from './Board'
-import NewBoard from './NewBoard'
+import AddBoard from './AddBoard'
 
 function Boards() {
     const [boards, setBoards] = useState([])
@@ -9,7 +9,7 @@ function Boards() {
         <div>
             <h2>My Boards</h2>
             {boards.map(board => <Board board={board}/>)}
-            <NewBoard boards={boards} setBoards={setBoards}/>
+            <AddBoard boards={boards} setBoards={setBoards}/>
         </div>
     )
 }
