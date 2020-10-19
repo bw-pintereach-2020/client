@@ -1,7 +1,9 @@
 //react imports
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom'
+import Navbar from './components/NavBar'
 import Home from './components/Home'
+
 
 //styles
 import './styles/App.css'
@@ -10,15 +12,14 @@ import './styles/App.css'
 function App() {
   return (
     <div className='App'>
-      {/* NavBar Component Here */}
-      <BrowserRouter>
+      {/* Navbar Component Here */}
+      <Navbar />
         <Switch>
           {/* <Route path='/login' component={Login} /> */}
           {/* <Route path='/login' component={Register} /> */}
           {/* <PrivateRoute path='/login' component={Dashboard} /> */}
-          <Route exact path='/' component={Home} />
+          <Route exact path='/' component={Home} ></Route> 
         </Switch>
-      </BrowserRouter>
     </div>
   )
 }
