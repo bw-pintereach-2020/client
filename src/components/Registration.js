@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-//user registration form
-//submit posts new user to back end
+import React, { useEffect, useState } from "react";
+import { registerSchema } from "./validation/registerSchema";
+import * as yup from "yup";
 //success returns login token
 //routes user to dashboard
 
@@ -20,19 +20,35 @@ const initErr = {
 
 const Registration = () => {
   const [register, setRegister] = useState(initForm);
-  const [errState, setErrState] = useState(initErr);
+  const [locked, setLocked] = useState(true);
+  const [errs, setErrs] = useState(initErr);
+
+  useEffect(() => {
+    // lock form until valid
+    registerSchema.isValid(register).then((valid) => {
+      setLocked(!valid);
+    });
+  }, [register]);
+
+  const validateInput = (name, value) => {
+    yup
+      .reach(registerSchema, name)
+      .validate(value)
+      .then(() => setErrs({ ...errs, [name]: "" }))
+      .catch((err) => setErrs({ ...errs, [name]: err.errors[0] }));
+  };
 
   const handleInput = (e) => {
-    const { value, name, type } = e.target;
-
+    const { name, value } = e.target;
+    validateInput(name, value)
     setRegister({ ...register, [name]: value });
   };
 
   const registerAccount = (e) => {
     e.preventDefault();
-
-    console.log(register);
+    console.log('Request Sent:', register);
   };
+
   return (
     <div>
       <h2>Register Your Account</h2>
@@ -87,7 +103,9 @@ const Registration = () => {
             </label>
           </div>
         </fieldset>
-        <button type="submit">Join the Pintereach Network</button>
+        <button disabled={locked} type="submit">
+          Join the Pintereach Network
+        </button>
       </form>
     </div>
   );
