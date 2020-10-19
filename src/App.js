@@ -1,9 +1,10 @@
 //react imports
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Navbar from './components/NavBar';
-import Home from './components/Home';
-import Login from './components/Login';
+import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Dashboard from './components/Dashboard'
+import Home from './components/Home'
+import Registration from './components/Registration'
+
 //styles
 import './styles/App.css'
 
@@ -11,14 +12,15 @@ import './styles/App.css'
 function App() {
   return (
     <div className='App'>
-      {/* Navbar Component Here */}
-      <Navbar />
-      <Switch>
-        {/* <PrivateRoute path='/login' component={Dashboard} /> */}
-        {/* <Route path='/login' component={} /> */}
-        <Route path='/login' component={Login}></Route>
-        <Route exact path='/' component={Home}></Route>
-      </Switch>
+      {/* NavBar Component Here */}
+      <BrowserRouter>
+        <Switch>
+          {/* <Route path='/login' component={Login} /> */}
+          {/* <Route path='/login' component={Register} /> */}
+          <Route path ='/dashboard' component={Dashboard} />
+          <Route exact path='/' component={Home} />
+        </Switch>
+      </BrowserRouter>
     </div>
   )
 }
