@@ -72,10 +72,11 @@ const Registration = () => {
                 name="username"
                 value={register.username}
                 placeholder="easy_reader_42"
+                aria-describedby='username-error'
                 onChange={handleInput}
               />
             </label>
-            { errs.username.length > 0 && <p className="err">{errs.username}</p> }
+            { errs.username.length > 0 && <p className="err" id='username-error'>{errs.username}</p> }
           </div>
           <div className="email">
             <label htmlFor="email">
@@ -85,11 +86,11 @@ const Registration = () => {
                 name="email"
                 value={register.email}
                 placeholder="ereader@yahoo.com"
-                aria-describedby='email-err'
+                aria-describedby='email-error'
                 onChange={handleInput}
               />
             </label>
-            { errs.email.length > 0 && <p className="error" id='email-err'>{errs.email}</p> }
+            { errs.email.length > 0 && <p className="error" id='email-error'>{errs.email}</p> }
           </div>
           <div className="pwd">
             <label htmlFor="password">
@@ -99,6 +100,7 @@ const Registration = () => {
                 name="password"
                 value={register.password}
                 placeholder="NightHowler1234!!"
+                aria-describedby='password-err'
                 onChange={handleInput}
               />
               <div
@@ -109,7 +111,7 @@ const Registration = () => {
                 {pwdShowing ? <HidePwd /> : <ShowPwd />}
               </div>
             </label>
-            { errs.password.length > 0 && <p className="error">{errs.password}</p> }
+            { errs.password.length > 0 && <p className="error" id='password-err'>{errs.password}</p> }
           </div>
           <div className="pwd-match">
             <label htmlFor="passwordMatch">
@@ -119,6 +121,7 @@ const Registration = () => {
                 name="passwordMatch"
                 value={register.passwordMatch}
                 placeholder="NightHowler1234!!"
+                aria-describedby='matching-password-error'
                 onChange={handleInput}
               />
               <div
@@ -129,7 +132,7 @@ const Registration = () => {
                 {pwdShowing ? <HidePwd /> : <ShowPwd />}
               </div>
             </label>
-            { errs.passwordMatch.length > 0 && <p className="error">{errs.passwordMatch}</p> }
+            { errs.passwordMatch.length > 0 && <p className="error" id='matching-password-error'>{errs.passwordMatch}</p> }
           </div>
         </fieldset>
         <button disabled={locked} type="submit">
