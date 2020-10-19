@@ -15,8 +15,8 @@ function App() {
       <Navbar />
       <Switch>
         {/* <PrivateRoute path='/login' component={Dashboard} /> */}
+        {/* <Route path='/login' component={} /> */}
         <Route path='/login' component={Login}></Route>
-        {/* <Route path='/login' component={Register} /> */}
         <Route exact path='/' component={Home}></Route>
       </Switch>
     </div>
