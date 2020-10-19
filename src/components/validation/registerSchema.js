@@ -19,5 +19,9 @@ export const registerSchema = yup.object().shape({
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/,
         "Please include at least 1 uppercase char, 1 number, and 1 special character."
-      )
+      ),
+    passwordmatch: yup
+    .string()
+    .oneOf([yup.ref('password'), null], 'Passwords should match.')
+    .required('Please confirm password.')
   });

@@ -10,14 +10,14 @@ const initForm = {
   username: "",
   email: "",
   password: "",
-  passwordMatch: "",
+  passwordmatch: "",
 };
 
 const initErr = {
   username: "",
   email: "",
   password: "",
-  passwordMatch: "",
+  passwordmatch: "",
 };
 
 const Registration = () => {
@@ -29,22 +29,16 @@ const Registration = () => {
   useEffect(() => {
     // lock form until valid
     registerSchema.isValid(register).then((valid) => {
-      setLocked(!valid);
+        setLocked(!valid);
     });
   }, [register]);
 
   const validateInput = (name, value) => {
-    if (name === "passwordMatch") {
-      value !== register.password
-        ? setErrs({ ...errs, [name]: "Passwords must be matching." })
-        : setErrs({ ...errs, [name]: "" });
-    } else {   
-        yup
-        .reach(registerSchema, name)
-        .validate(value)
-        .then(() => setErrs({ ...errs, [name]: "" }))
-        .catch((err) => setErrs({ ...errs, [name]: err.errors[0] }));
-    }
+    yup
+    .reach(registerSchema, name)
+    .validate(value)
+    .then(() => setErrs({ ...errs, [name]: "" }))
+    .catch((err) => setErrs({ ...errs, [name]: err.errors[0] }));
   };
 
   const handleInput = (e) => {
@@ -132,12 +126,12 @@ const Registration = () => {
             )}
           </div>
           <div className="pwd-match">
-            <label htmlFor="passwordMatch">
+            <label htmlFor="passwordmatch">
               Double-Check It
               <input
                 type={pwdShowing ? "text" : "password"}
-                name="passwordMatch"
-                value={register.passwordMatch}
+                name="passwordmatch"
+                value={register.passwordmatch}
                 placeholder="NightHowler1234!!"
                 aria-describedby="matching-password-error"
                 onChange={handleInput}
@@ -150,9 +144,9 @@ const Registration = () => {
                 {pwdShowing ? <ShowPwd /> : <HidePwd />}
               </div>
             </label>
-            {errs.passwordMatch.length > 0 && (
+            {register.passwordmatch.length > 0 && register.passwordmatch !== register.password && (
               <p className="error" id="matching-password-error">
-                {errs.passwordMatch}
+                {errs.passwordmatch}
               </p>
             )}
           </div>
