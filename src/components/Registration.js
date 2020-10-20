@@ -4,6 +4,7 @@ import { registerSchema } from "./validation/registerSchema";
 import * as yup from "yup";
 import registerUser from '../actions/registerUser'
 import { HidePwd, ShowPwd } from "./utils/appIcons.js";
+import '../styles/scss/Auth.scss'
 //success returns login token
 //routes user to dashboard
 
@@ -70,7 +71,7 @@ const Registration = (props) => {
   }, [token, props.history])
 
   return (
-    <div>
+    <section className='pg register-pg'>
       <h2>Register Your Account</h2>
       <form onSubmit={registerAccount}>
         <fieldset>
@@ -165,7 +166,7 @@ const Registration = (props) => {
           Join the Pintereach Network
         </button>
       </form>
-    </div>
+    </section>
   );
 };
 
