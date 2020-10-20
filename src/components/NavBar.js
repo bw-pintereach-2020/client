@@ -1,7 +1,3 @@
-//app navigation bar
-//rendered by app outside router
-//logged out shows login and register
-//logged in shows logout and dashboard
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import logoutUser from '../actions/logoutUser';

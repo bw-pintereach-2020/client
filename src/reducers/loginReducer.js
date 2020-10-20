@@ -1,15 +1,25 @@
-//initialize state
+import { LOGIN_USER_START, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE } from '../actions/loginUser'
+
 const initialState = {
-    userId: {}
+    inProgress: false,
+    message: '',
+    token: '',
+    user: {},
+    error: ''
 }
 
-//register reducer
 function loginReducer(state = initialState, action) {
-    switch(action.type) {
+    const { type, payload } = action
+    switch(type) {
+        case LOGIN_USER_START:
+            return {...state, inProgress: true}
+        case LOGIN_USER_SUCCESS:
+            return {...state, inProgress: false, message: payload.message, token: payload.token, user: payload.user}
+        case LOGIN_USER_FAILURE:
+            return {...state, inProgress: false, error: payload.message}
         default:
             return state
     }
 }
 
-//export reducer
 export default loginReducer

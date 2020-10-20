@@ -2,6 +2,7 @@ import { LOGOUT_START, LOGOUT_SUCCESS, LOGOUT_FAILURE } from '../actions/logoutU
 
 const initialState = {
     inProgress: false,
+    error: ''
 }
 
 function logoutReducer(state = initialState, action) {
@@ -12,7 +13,7 @@ function logoutReducer(state = initialState, action) {
         case LOGOUT_SUCCESS:
             return {...state, inProgress: false}
         case LOGOUT_FAILURE:
-            return {...state, inProgress: false}
+            return {...state, inProgress: false, error: 'Logout Failed'}
         default:
             return state
     }
