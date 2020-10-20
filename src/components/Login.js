@@ -6,6 +6,19 @@
 import React, { useState , useEffect} from 'react';
 import * as yup from 'yup';
 import { loginSchema } from './validation/loginSchema';
+import styled from 'styled-components';
+
+//STYLES FOR THE FORM
+
+const Form = styled.div`
+    border: 2px solid black;
+    width: 50%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+`;
+////////////////////////////////////////
+
 
 const loginData = []
 
@@ -67,6 +80,7 @@ export default function Login() {
 
 
     return (
+        <Form className="formContainer">
         <form onSubmit={submit}>
             <label>
                 Username:
@@ -80,5 +94,6 @@ export default function Login() {
             <div>{formErrors.username}</div>
             <div>{formErrors.password}</div>
         </form>
+    </Form>
     )
 }
