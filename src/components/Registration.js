@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { connect } from 'react-redux'
 import { registerSchema } from "./validation/registerSchema";
 import * as yup from "yup";
-
+import registerUser from '../actions/registerUser'
 import { HidePwd, ShowPwd } from "./utils/appIcons.js";
 //success returns login token
 //routes user to dashboard
@@ -20,7 +21,7 @@ const initErr = {
   passwordmatch: "",
 };
 
-const Registration = () => {
+const Registration = (props) => {
   const [register, setRegister] = useState(initForm);
   const [pwdShowing, setPwdShowing] = useState(false);
   const [locked, setLocked] = useState(true);
@@ -56,7 +57,8 @@ const Registration = () => {
       password: register.password,
     };
 
-    console.log("Request Sent:", reqObj);
+    props.registerUser(reqObj)
+    props.history.push('/dashboard')
   };
 
   return (
@@ -159,4 +161,8 @@ const Registration = () => {
   );
 };
 
-export default Registration; 
+const mapStateToProps = state => ({
+  state
+})
+
+export default connect(mapStateToProps, { registerUser })(Registration)
