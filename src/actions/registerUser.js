@@ -9,6 +9,7 @@ const registerUser = (newUser) => dispatch => {
     axios
         .post('https://pintereach1.herokuapp.com/api/register', newUser)
         .then(({ data }) => {
+            window.localStorage.setItem('token', data.token)
             dispatch({ type: POST_NEWUSER_SUCCESS, payload: data })
         })
         .catch(({ response: { data }}) => {

@@ -27,6 +27,8 @@ const Registration = (props) => {
   const [locked, setLocked] = useState(true);
   const [errs, setErrs] = useState(initErr);
 
+  const { token } = props.state.registerReducer
+
   useEffect(() => {
     // lock form until valid
     registerSchema.isValid(register).then((valid) => {
@@ -58,8 +60,14 @@ const Registration = (props) => {
     };
 
     props.registerUser(reqObj)
-    props.history.push('/dashboard')
+  
   };
+
+  useEffect(() => {
+    if(token){
+      props.history.push('/dashboard')
+    }
+  }, [token, props.history])
 
   return (
     <div>
