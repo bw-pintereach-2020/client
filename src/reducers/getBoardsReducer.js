@@ -15,7 +15,7 @@ function getBoardsReducer(state = initialState, action) {
         case GET_BOARDS_SUCCESS:
             return {...state, inProgress: false, boards: payload}
         case GET_BOARDS_FAILURE:
-            return state
+            return {...state, inProgress: false, error: payload}
         default:
             return state
     }

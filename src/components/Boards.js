@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Board from './Board'
 import AddBoard from './AddBoard'
 import { connect } from 'react-redux'
@@ -6,7 +6,7 @@ import getBoards from '../actions/getBoards'
 
 function Boards(props) {
     const { getBoards } = props
-    const { boards } = props.state.getBoards
+    const { boards } = props.state.getBoardsReducer
 
     useEffect(() => {
         getBoards()

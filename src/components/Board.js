@@ -19,7 +19,7 @@ function Board(props) {
                 <span onClick={toggleOpen}>{!isOpen ? ' + ' : ' - '}</span>
             </h3>
             {isOpen ? <button onClick={() => {setIsEditing(true)}}>Add Article</button> : null}
-            {isEditing ? <AddArticle articles={articles} setArticles={setArticles} setIsEditing={setIsEditing}/> : null}
+            {isEditing ? <AddArticle id={props.board.id} setIsEditing={setIsEditing}/> : null}
             {isOpen ? articles.map(article => <Article article={article}/>) : null}            
         </div>
     )
