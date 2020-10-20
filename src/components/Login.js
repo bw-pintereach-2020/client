@@ -15,6 +15,26 @@ const Form = styled.div`
     width: 20%;
     height: 50vh;
     margin: 7% auto;
+    background-color: #ebebeb;
+    padding: 0 3%;
+    box-shadow: 0 20px 50px rgba(8, 112, 184, 0.7);
+
+
+    @media(max-width: 1500px){
+        width: 30%;
+    }
+
+    @media(max-width: 800px){
+        width: 50%;
+    }
+
+    @media(max-width: 500px){
+        width: 80%;
+    }
+
+    @media(max-width: 400px){
+        width: 80%;
+    }
 `;
 
 const InputForm = styled.div`
@@ -30,7 +50,7 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-    width: 35vh;
+    width: 100%;
     height: 5vh;
     font-size: 1.8rem; 
     margin-bottom: 5%;
