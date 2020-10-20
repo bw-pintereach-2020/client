@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import addArticle from '../actions/addArticle'
+import getArticles from '../actions/getArticles'
 
 const initialValues = {
     title: '',
@@ -22,6 +23,7 @@ function AddArticle(props) {
         e.preventDefault()
         const newArticle = { url: values.url, board_id: props.id, notes: values.notes }
         props.addArticle(newArticle)
+        props.getArticles()
         props.setIsEditing(false)
         setValues(initialValues)
     }
@@ -79,4 +81,4 @@ const mapStateToProps = state => ({
     state
 })
 
-export default connect(mapStateToProps, { addArticle })(AddArticle)
+export default connect(mapStateToProps, { addArticle, getArticles })(AddArticle)

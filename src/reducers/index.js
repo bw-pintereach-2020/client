@@ -8,15 +8,17 @@ import addBoardReducer from './addBoardReducer'
 import logoutReducer from './logoutReducer'
 import getBoardsReducer from './getBoardsReducer'
 import addArticleReducer from './addArticleReducer'
+import getArticlesReducer from './getArticlesReducer'
 
 //root reducer
 const rootReducer = combineReducers({
     registerReducer,
     loginReducer,
-    addBoardReducer,
     logoutReducer,
+    addBoardReducer,
     getBoardsReducer,
-    addArticleReducer
+    addArticleReducer,
+    getArticlesReducer
 })
 
 //export reducer
