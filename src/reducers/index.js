@@ -6,13 +6,15 @@ import registerReducer from './registerReducer'
 import loginReducer from './loginReducer'
 import addBoardReducer from './addBoardReducer'
 import logoutReducer from './logoutReducer'
+import getBoards from './getBoards'
 
 //root reducer
 const rootReducer = combineReducers({
     registerReducer,
     loginReducer,
     addBoardReducer,
-    logoutReducer
+    logoutReducer,
+    getBoards
 })
 
 //export reducer

@@ -28,7 +28,7 @@ function NavBar(props){
             <ul>
                 <Link to="/"><li>Home</li></Link>
                 <Link to="/dashboard"><li>Dashboard</li></Link>
-                <Link onClick={handleLogout}><li>Logout</li></Link>
+                <Link to='' onClick={handleLogout}><li>Logout</li></Link>
             </ul>
         )
     }

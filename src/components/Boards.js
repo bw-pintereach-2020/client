@@ -1,17 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Board from './Board'
 import AddBoard from './AddBoard'
+import { connect } from 'react-redux'
+import getBoards from '../actions/getBoards'
 
-function Boards() {
-    const [boards, setBoards] = useState([])
+function Boards(props) {
+    const { getBoards } = props
+    const { boards } = props.state.getBoards
+
+    useEffect(() => {
+        getBoards()
+    }, [getBoards])
 
     return (
         <div>
             <h2>My Boards</h2>
-            {boards.map(board => <Board board={board}/>)}
-            <AddBoard boards={boards} setBoards={setBoards}/>
+            {boards?.map(board => <Board board={board} key={board.id}/>)}
+            <AddBoard />
         </div>
     )
 }
 
-export default Boards
+const mapStateToProps = state => ({
+    state
+})
+
+export default connect(mapStateToProps, { getBoards })(Boards)

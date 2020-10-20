@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import addBoard from '../actions/addBoard'
+import getBoards from '../actions/getBoards'
 
 const initialValues = {
     name: '',
@@ -20,8 +21,8 @@ function AddBoard(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.setBoards([...props.boards, values])
         props.addBoard(values)
+        props.getBoards()
         setIsEditing(false)
         setValues(initialValues)
     }
@@ -73,4 +74,4 @@ const mapStateToProps = state => ({
     state
 })
 
-export default connect(mapStateToProps, { addBoard })(AddBoard)
+export default connect(mapStateToProps, { addBoard, getBoards })(AddBoard)
