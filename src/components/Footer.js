@@ -4,13 +4,36 @@
 //view is same logged in and out
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const BottomNav = styled.nav`
+    position: fixed;
+    bottom: 0; 
+    width: 100%;
+    height: 5%;
+    background-color: #119DA4;
+`;
+
+const NavContents = styled.ul`
+    display: flex; 
+    justify-content: flex-end;
+    background-color: #119DA4;
+`;
+
+const NavItems = styled.li`
+    color: #eeeeee; 
+    font-size: 1.8rem;
+    padding: 10px 35px;
+`;
 
 export default function Footer() {
     return (
-        <ul>
-            <Link to="/"><li>Home</li></Link>
-            <Link to="/login"><li>Login</li></Link>
-            <Link to="/register"><li>Register</li></Link>
-        </ul>
+        <BottomNav>
+            <NavContents>
+            <Link to="/"><NavItems>Home</NavItems></Link>
+            <Link to="/login"><NavItems>Login</NavItems></Link>
+            <Link to="/register"><NavItems>Register</NavItems></Link>
+            </NavContents>
+        </BottomNav>
     );
 }

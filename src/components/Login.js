@@ -3,7 +3,7 @@
 //success returns login token 
 /* routes to dashboard */
 
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import { loginSchema } from './validation/loginSchema';
 import styled from 'styled-components';
@@ -12,13 +12,47 @@ import styled from 'styled-components';
 
 const Form = styled.div`
     border: 2px solid black;
-    width: 50%;
-    height: 70vh;
-    display: flex;
-    justify-content: center;
+    width: 20%;
+    height: 50vh;
+    margin: 7% auto;
 `;
-////////////////////////////////////////
 
+const InputForm = styled.div`
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 30%;
+`;
+
+const Label = styled.label`
+    font-size: 2rem;
+    font-weight: bold; 
+`;
+
+const Input = styled.input`
+    width: 35vh;
+    height: 5vh;
+    font-size: 1.8rem; 
+    margin-bottom: 5%;
+    outline: none;
+`;
+
+const Button = styled.button`
+    margin-top: 15%;
+    height: 5vh;
+    font-size: 2rem;
+    background-color: #119DA4;
+`;
+
+const Errors = styled.div`
+    color: red;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold; 
+    margin-top: 2%;
+`;
+
+////////////////////////////////////////
 
 const loginData = []
 
@@ -72,7 +106,6 @@ export default function Login() {
     };
 
     useEffect(() => {
-        // 🔥 STEP 9- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
         loginSchema.isValid(formValue).then((valid) => {
             setDisabled(!valid);
         });
@@ -81,19 +114,19 @@ export default function Login() {
 
     return (
         <Form className="formContainer">
-        <form onSubmit={submit}>
-            <label>
-                Username:
-                        <input type='text' name='username' onChange={inputChange} value={formValue.username} />
-            </label>
-            <label>
-                Password:
-                        <input type='text' name='password' onChange={inputChange} value={formValue.password} />
-            </label>
-            <button disabled={disabled}>Login</button>
-            <div>{formErrors.username}</div>
-            <div>{formErrors.password}</div>
-        </form>
-    </Form>
+            <InputForm onSubmit={submit}>
+                <Label>
+                    Username:
+                        <Input type='text' name='username' onChange={inputChange} value={formValue.username} />
+                </Label>
+                <Label>
+                    Password:
+                        <Input type='text' name='password' onChange={inputChange} value={formValue.password} />
+                </Label>
+            <Button disabled={disabled}>Login</Button>
+            </InputForm>
+            <Errors>{formErrors.username}</Errors>
+            <Errors>{formErrors.password}</Errors>
+        </Form>
     )
 }
