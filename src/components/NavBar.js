@@ -8,6 +8,7 @@ import logoutUser from '../actions/logoutUser';
 import { connect } from 'react-redux'
 
 function NavBar(props){
+    const loggedIn = window.localStorage.getItem('token') ? true : false
     const history = useHistory()
     
     const handleLogout = (e) => {
@@ -16,15 +17,27 @@ function NavBar(props){
         history.push('/')
     }
 
-    return (
-        <ul>
-            <Link to="/"><li>Home</li></Link>
-            <Link to="/login"><li>Login</li></Link>
-            <Link onClick={handleLogout}><li>Logout</li></Link>
-            <Link to="/register"><li>Register</li></Link>
-            <Link to="/dashboard"><li>Dashboard</li></Link>
-        </ul>
-    );
+    const publicNav = () => {
+        return(
+            <nav>
+                <Link to="/"><li>Home</li></Link>
+                <Link to="/login"><li>Login</li></Link>
+                <Link to="/register"><li>Register</li></Link>
+            </nav>
+        )
+    }
+
+    const privateNav = () => {
+        return(
+            <ul>
+                <Link to="/"><li>Home</li></Link>
+                <Link to="/dashboard"><li>Dashboard</li></Link>
+                <Link onClick={handleLogout}><li>Logout</li></Link>
+            </ul>
+        )
+    }
+
+    return loggedIn ? privateNav() : publicNav()
 }
 
 const mapStateToProps = state => ({
