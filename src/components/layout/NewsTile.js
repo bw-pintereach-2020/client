@@ -1,12 +1,16 @@
-import React from 'react'
-import '../../styles/scss/Home.scss'
+import React from "react";
+import "../../styles/scss/Home.scss";
 
-const NewsTile = () => {
-    return (
-        <div>
-            <h3></h3>
-        </div>
-    )
-}
+const NewsTile = ({ article }) => {
+  const { urlToImage, url, title } = article;
+  return (
+    <a href={url} target="_blank" rel="noopener noreferrer">
+      <figure>
+        <img src={urlToImage} alt={title} />
+        <figcaption>{title}</figcaption>
+      </figure>
+    </a>
+  );
+};
 
-export default NewsTile
+export default NewsTile;
