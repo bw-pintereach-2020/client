@@ -6,7 +6,7 @@ const NewsTile = ({ article }) => {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
       <figure className='article-thumbnail'>
-        <img src={urlToImage ? urlToImage : 'https://www.battea.com/wp-content/uploads/2018/09/icon-research.png'} alt={title} />
+        <img src={urlToImage ? urlToImage : 'https://image.shutterstock.com/image-vector/business-analysis-icon-vector-illustrationmarketing-260nw-1685388379.jpg'} alt={title} />
         <figcaption>{title}</figcaption>
       </figure>
     </a>
