@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom'
 //components
 import Dashboard from './components/routes/Dashboard'
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 import Home from './components/routes/Home'
 import Login from './components/auth/Login'
 import Registration from './components/auth/Registration'
@@ -24,6 +25,7 @@ function App() {
          <Route exact path='/register' component={Registration} />
          <Route exact path='/login' component={Login} />
        </Switch>
+       <Footer/>
     </div>
   )
 }

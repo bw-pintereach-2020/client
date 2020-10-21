@@ -1,7 +1,26 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 import logoutUser from '../actions/logoutUser';
 import { connect } from 'react-redux'
+
+const StyledNav = styled.nav`
+    display: flex; 
+    justify-content: flex-end;
+    background-color: #119DA4;
+
+    a {
+        color: #eeeeee; 
+        font-size: 1.8rem;
+        padding: 10px 35px;
+    }
+`;
+
+// const NavBarListItems = styled.a`
+//     color: #eeeeee; 
+//     font-size: 1.8rem;
+//     padding: 10px 35px;
+// `;
 
 function NavBar(props){
     const loggedIn = window.localStorage.getItem('token') ? true : false
@@ -15,21 +34,21 @@ function NavBar(props){
 
     const publicNav = () => {
         return(
-            <nav>
+            <StyledNav>
                 <Link to="/"><li>Home</li></Link>
                 <Link to="/login"><li>Login</li></Link>
                 <Link to="/register"><li>Register</li></Link>
-            </nav>
+            </StyledNav>
         )
     }
 
     const privateNav = () => {
         return(
-            <ul>
-                <Link to="/"><li>Home</li></Link>
-                <Link to="/dashboard"><li>Dashboard</li></Link>
-                <Link to='' onClick={handleLogout}><li>Logout</li></Link>
-            </ul>
+            <StyledNav>
+                <Link to="/">Home</Link>
+                <Link to="/dashboard">Dashboard</Link>
+                <Link to='' onClick={handleLogout}>Logout</Link>
+            </StyledNav>
         )
     }
 
