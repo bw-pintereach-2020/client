@@ -8,7 +8,7 @@ function PrivateRoute(props) {
     return(
         <Route 
         render={() => {
-            if (loggedIn) {
+            if (loggedIn || window.localStorage.getItem('token')) {
                 return <Component />
             } else {
                 return <Redirect to='/' />
