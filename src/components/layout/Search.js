@@ -38,18 +38,22 @@ export default function Search() {
 
     return (
         <section className="home-content">
-            <form onSubmit={onSubmit}>
+            <form className='search-form' onSubmit={onSubmit}>
                 <label>
                     Search: 
                     <input type='text' name="search" onChange={onChange}/>
                 </label>
                 <button>Search</button> 
             </form>
+            <div className="unordered">
             {initialSearch.map((p, i) => (
-                <ul> 
+                <ul className='wiki-list'> 
                 <li key={p.i}>{p.title}</li>
+                {/* <li key={p.i}>{p.snippet}</li> */}
+                <li key={p.i}>{p.timestamp}</li>
                 </ul>
             ))}
+            </div>
         </section>
     )
 }
