@@ -1,0 +1,45 @@
+@import "config";
+
+.home-pg {
+  .home-content {
+    h2 {
+      text-align: center;
+      @include font-size($h2-font-sizes);
+    }
+    .content-block {
+      @include font-size($sub-font-sizes);
+      text-align: center;
+      width: 100%;
+      margin: auto;
+      max-width: 1300px;
+      li {
+        display: inline-block;
+        width: calc(100% / 3);
+        a {
+          display: inline-block;
+          color: map-get($colors, app-white);
+          font-weight: bold;
+          figure {
+            height: 400px;
+            margin: 0;
+            line-height: 2;
+            position: relative;
+            figcaption {
+              position: absolute;
+              font-family: $fontSecondary;
+              bottom: 0;
+              width: 100%;
+              background: map-get($colors, app-green);
+            }
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
