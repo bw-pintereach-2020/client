@@ -168,7 +168,7 @@ function Login(props) {
                         height={100}
                         width={100}
                     />
-                    <p>Loading...</p>
+                    <p>Logging In</p>
                     </>
                 }
             </InputForm>
