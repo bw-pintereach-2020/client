@@ -1,29 +1,62 @@
-//app navigation bar
-//rendered by app outside router
-//logged out shows login and register
-//logged in shows logout and dashboard
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import logoutUser from '../actions/logoutUser';
+import { connect } from 'react-redux'
 
-const UnorderedList = styled.ul`
+const StyledNav = styled.nav`
     display: flex; 
     justify-content: flex-end;
     background-color: #119DA4;
+
+    a {
+        color: #eeeeee; 
+        font-size: 1.8rem;
+        padding: 10px 35px;
+    }
 `;
 
-const NavBarListItems = styled.li`
-    color: #eeeeee; 
-    font-size: 1.8rem;
-    padding: 10px 35px;
-`;
+// const NavBarListItems = styled.a`
+//     color: #eeeeee; 
+//     font-size: 1.8rem;
+//     padding: 10px 35px;
+// `;
 
-export default function NavBar(){
-    return (
-        <UnorderedList>
-            <Link to="/"><NavBarListItems>Home</NavBarListItems></Link>
-            <Link to="/login"><NavBarListItems>Login</NavBarListItems></Link>
-            <Link to="/register"><NavBarListItems>Register</NavBarListItems></Link>
-        </UnorderedList>
-    );
+function NavBar(props){
+    const loggedIn = window.localStorage.getItem('token') ? true : false
+    const history = useHistory()
+    
+    const handleLogout = (e) => {
+        e.preventDefault()
+        props.logoutUser()
+        history.push('/')
+    }
+
+    const publicNav = () => {
+        return(
+            <StyledNav>
+                <Link to="/"><li>Home</li></Link>
+                <Link to="/login"><li>Login</li></Link>
+                <Link to="/register"><li>Register</li></Link>
+            </StyledNav>
+        )
+    }
+
+    const privateNav = () => {
+        return(
+            <StyledNav>
+                <Link to="/">Home</Link>
+                <Link to="/dashboard">Dashboard</Link>
+                <Link to='' onClick={handleLogout}>Logout</Link>
+            </StyledNav>
+        )
+    }
+
+    return loggedIn ? privateNav() : publicNav()
 }
+
+const mapStateToProps = state => ({
+    state
+})
+
+export default connect(mapStateToProps, { logoutUser })(NavBar)

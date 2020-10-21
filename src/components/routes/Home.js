@@ -1,15 +1,18 @@
+import React from 'react';
+import NewsBlock from '../layout/NewsBlock';
+import "../../styles/scss/Home.scss";
 //main landing page 
 //contains basic marketing material
 //navbar routes to login or register
 //footer contains social media links and contact info
 
-import React from 'react'
-
 function Home() {
     return (
-        <div>
+        <section className='pg home-pg'>
             <h1>Pintereach</h1>
-        </div>
+            <h2>Save now, Study later</h2>
+            <NewsBlock/>
+        </section>
     )
 }
 

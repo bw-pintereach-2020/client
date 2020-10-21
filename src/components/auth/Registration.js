@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { registerSchema } from "./validation/registerSchema";
+import { connect } from 'react-redux'
+import { registerSchema } from "../validation/registerSchema";
 import * as yup from "yup";
-
-import { HidePwd, ShowPwd } from "./utils/appIcons.js";
+import registerUser from '../../actions/registerUser'
+import { HidePwd, ShowPwd } from "../utils/appIcons.js";
+import '../../styles/scss/Auth.scss'
 //success returns login token
 //routes user to dashboard
 
@@ -20,11 +22,13 @@ const initErr = {
   passwordmatch: "",
 };
 
-const Registration = () => {
+const Registration = (props) => {
   const [register, setRegister] = useState(initForm);
   const [pwdShowing, setPwdShowing] = useState(false);
   const [locked, setLocked] = useState(true);
   const [errs, setErrs] = useState(initErr);
+
+  const { token } = props.state.registerReducer
 
   useEffect(() => {
     // lock form until valid
@@ -56,11 +60,18 @@ const Registration = () => {
       password: register.password,
     };
 
-    console.log("Request Sent:", reqObj);
+    props.registerUser(reqObj)
+  
   };
 
+  useEffect(() => {
+    if(token){
+      props.history.push('/dashboard')
+    }
+  }, [token, props.history])
+
   return (
-    <div>
+    <section className='pg register-pg'>
       <h2>Register Your Account</h2>
       <form onSubmit={registerAccount}>
         <fieldset>
@@ -155,8 +166,12 @@ const Registration = () => {
           Join the Pintereach Network
         </button>
       </form>
-    </div>
+    </section>
   );
 };
 
-export default Registration; 
+const mapStateToProps = state => ({
+  state
+})
+
+export default connect(mapStateToProps, { registerUser })(Registration)

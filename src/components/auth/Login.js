@@ -5,8 +5,10 @@
 
 import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
-import { loginSchema } from './validation/loginSchema';
+import { loginSchema } from '../validation/loginSchema';
 import styled from 'styled-components';
+import { connect } from 'react-redux'
+import loginUser from '../../actions/loginUser';
 
 //STYLES FOR THE FORM
 
@@ -74,7 +76,8 @@ const Errors = styled.div`
 
 ////////////////////////////////////////
 
-const loginData = []
+//routes to dashboard
+
 
 const initalFormValues = {
     username: '',
@@ -87,12 +90,13 @@ const initialErr = {
 }
 const initialDisabled = true;
 
-export default function Login() {
-
-    const [login, setLoginData] = useState(loginData);
+function Login(props) {
     const [formValue, setFormValue] = useState(initalFormValues);
     const [formErrors, setFormErrors] = useState(initialErr);
     const [disabled, setDisabled] = useState(initialDisabled);
+
+    const { token } = props.state.loginReducer
+
     const inputChange = (evt) => {
         const { name, value } = evt.target;
         setFormValue({
@@ -121,9 +125,15 @@ export default function Login() {
             username: formValue.username,
             password: formValue.password,
         };
-        setLoginData([...login, newLogin]);
+        props.loginUser(newLogin)
         setFormValue(initalFormValues);
     };
+
+    useEffect(() => {
+        if(token){
+            props.history.push('/dashboard')
+          }
+    }, [token, props.history])
 
     useEffect(() => {
         loginSchema.isValid(formValue).then((valid) => {
@@ -150,3 +160,9 @@ export default function Login() {
         </Form>
     )
 }
+
+const mapStateToProps = state => ({
+    state
+  })
+  
+  export default connect(mapStateToProps, { loginUser })(Login)

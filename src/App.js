@@ -1,12 +1,15 @@
 //react imports
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Dashboard from './components/Dashboard'
+
+//components
+import Dashboard from './components/routes/Dashboard'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
-import Home from './components/Home'
-import Login from './components/Login'
-import Registration from './components/Registration'
+import Home from './components/routes/Home'
+import Login from './components/auth/Login'
+import Registration from './components/auth/Registration'
+import PrivateRoute from './components/auth/PrivateRoute'
 
 //styles
 import './styles/App.css'
@@ -18,7 +21,7 @@ function App() {
        <NavBar/>
        <Switch>
          <Route exact path='/' component={Home} />
-         <Route exact path ='/dashboard' component={Dashboard} />
+         <PrivateRoute exact path ='/dashboard' component={Dashboard} />
          <Route exact path='/register' component={Registration} />
          <Route exact path='/login' component={Login} />
        </Switch>
