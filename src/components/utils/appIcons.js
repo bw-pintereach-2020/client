@@ -1,5 +1,28 @@
 import React from 'react'
 
+export const WikiIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="36"
+      height="36"
+      fill="none"
+      stroke="#13505b"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="icon icon-tabler icon-tabler-news"
+      viewBox="0 0 24 24"
+    >
+      <path stroke="none" d="M0 0h24v24H0z"></path>
+      <path d="M16 6h3a1 1 0 011 1v11a2 2 0 01-4 0V5a1 1 0 00-1-1H5a1 1 0 00-1 1v12a3 3 0 003 3h11"></path>
+      <path d="M8 8L12 8"></path>
+      <path d="M8 12L12 12"></path>
+      <path d="M8 16L12 16"></path>
+    </svg>
+  );
+}
+
+
 export const ShowPwd = () => {
     return (
         <svg
