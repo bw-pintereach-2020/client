@@ -72,10 +72,10 @@ const Registration = (props) => {
 
   return (
     <section className='pg register-pg'>
-      <h2>Register Your Account</h2>
-      <form onSubmit={registerAccount}>
+      <h1>Unlock Exclusive Content</h1>
+      <form className='auth-form' onSubmit={registerAccount}>
         <fieldset>
-          <div className="username">
+          <div className="username form-item">
             <label htmlFor="username">
               Pick a Unique Username
               <input
@@ -87,13 +87,8 @@ const Registration = (props) => {
                 onChange={handleInput}
               />
             </label>
-            {errs.username.length > 0 && (
-              <p className="err" id="username-error">
-                {errs.username}
-              </p>
-            )}
           </div>
-          <div className="email">
+          <div className="email form-item">
             <label htmlFor="email">
               Add Your Email
               <input
@@ -105,13 +100,8 @@ const Registration = (props) => {
                 onChange={handleInput}
               />
             </label>
-            {errs.email.length > 0 && (
-              <p className="error" id="email-error">
-                {errs.email}
-              </p>
-            )}
           </div>
-          <div className="pwd">
+          <div className="pwd form-item">
             <label htmlFor="password">
               Make a Super-Secret Password
               <input
@@ -124,19 +114,15 @@ const Registration = (props) => {
               />
               <div
                 role="button"
+                className='toggle-pwd'
                 onClick={(e) => setPwdShowing(!pwdShowing)}
                 aria-label={pwdShowing ? "Hide Password" : "Show Password"}
               >
                 {pwdShowing ? <ShowPwd /> : <HidePwd />}
               </div>
             </label>
-            {errs.password.length > 0 && (
-              <p className="error" id="password-err">
-                {errs.password}
-              </p>
-            )}
           </div>
-          <div className="pwd-match">
+          <div className="pwd-match form-item">
             <label htmlFor="passwordmatch">
               Double-Check It
               <input
@@ -149,19 +135,35 @@ const Registration = (props) => {
               />
               <div
                 role="button"
+                className='toggle-pwd'
                 onClick={(e) => setPwdShowing(!pwdShowing)}
                 aria-label={pwdShowing ? "Hide Password" : "Show Password"}
               >
                 {pwdShowing ? <ShowPwd /> : <HidePwd />}
               </div>
             </label>
-            {register.passwordmatch.length > 0 && register.passwordmatch !== register.password && (
-              <p className="error" id="matching-password-error">
-                {errs.passwordmatch}
-              </p>
-            )}
           </div>
         </fieldset>
+        {errs.username.length > 0 && (
+              <p className="err" id="username-error">
+                {errs.username}
+              </p>
+            )}
+        {errs.email.length > 0 && (
+              <p className="err" id="email-error">
+                {errs.email}
+              </p>
+            )}
+        {errs.password.length > 0 && (
+              <p className="err" id="password-err">
+                {errs.password}
+              </p>
+            )}
+        {register.passwordmatch.length > 0 && register.passwordmatch !== register.password && (
+                <p className="err" id="matching-password-error">
+                  {errs.passwordmatch}
+                </p>
+              )}
         <button disabled={locked} type="submit">
           Join the Pintereach Network
         </button>
