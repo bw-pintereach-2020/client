@@ -95,7 +95,7 @@ function Login(props) {
     const [formErrors, setFormErrors] = useState(initialErr);
     const [disabled, setDisabled] = useState(initialDisabled);
 
-    const { token } = props.state.loginReducer
+    const { token } = props.state.userAuthReducer
 
     const inputChange = (evt) => {
         const { name, value } = evt.target;
@@ -125,6 +125,7 @@ function Login(props) {
             username: formValue.username,
             password: formValue.password,
         };
+        console.log('submit clicked')
         props.loginUser(newLogin)
         setFormValue(initalFormValues);
     };
@@ -144,7 +145,7 @@ function Login(props) {
 
     return (
         <Form className="formContainer">
-            <InputForm onSubmit={submit}>
+            <InputForm >
                 <Label>
                     Username:
                         <Input type='text' name='username' onChange={inputChange} value={formValue.username} />
@@ -153,7 +154,7 @@ function Login(props) {
                     Password:
                         <Input type='text' name='password' onChange={inputChange} value={formValue.password} />
                 </Label>
-            <Button disabled={disabled}>Login</Button>
+            <Button disabled={disabled} onClick={submit}>Login</Button>
             </InputForm>
             <Errors>{formErrors.username}</Errors>
             <Errors>{formErrors.password}</Errors>

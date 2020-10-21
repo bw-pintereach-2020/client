@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 function PrivateRoute({component:Component, ...rest}) {
     return(
@@ -9,11 +10,15 @@ function PrivateRoute({component:Component, ...rest}) {
             if (window.localStorage.getItem('token')) {
                 return <Component {...props} />
             } else {
-                return <Redirect to='/register' />
+                return <Redirect to='/' />
             }
         }}
         />
     )
 }
 
-export default PrivateRoute
+const mapStateToProps = state => ({
+    state
+})
+
+export default connect(mapStateToProps, {})(PrivateRoute)
