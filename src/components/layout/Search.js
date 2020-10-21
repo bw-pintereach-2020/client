@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
 const initial = {
-    search: "apple"
+    search: "cheese"
 }
+
+
+
 export default function Search() {
-    const [search, setSearch] = useState([]);
+    const [initialSearch, setinitialSearch] = useState([]);
+    const [ userSearch, setUserSearch ] = useState([]);
 
     useEffect(() => {
         const getSearch = () => {
-            axios.get(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=apple&origin=*`)
+            axios.get(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${initial.search}&origin=*`)
                 .then(res => {
                     console.log(res.data.query.search, 'axios call')
-                    setSearch(res.data.query.search);
+                    setinitialSearch(res.data.query.search);
                 })
                 .catch(err => {
                     alert("err");
@@ -20,26 +25,37 @@ export default function Search() {
         getSearch();
     }, [])
 
-    // const onChange = (evt) => {
-    //     const { name, value } = evt.target;
-    //     setSearchTerm({
-    //         ...searchTerm,
-    //         [name]: value
-    //     })
-    // }
+    const onChange = (e) =>{
+        const { name, value } = e.target;
+        setUserSearch({
+            ...userSearch,
+            [name]: value
+        })
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+                axios.get(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${userSearch.search}&origin=*`)
+                .then((res) => {
+                    setUserSearch(res.data.query.search);
+                })
+                .catch((err) => {
+                    alert(err);
+                })
+    }
 
     return (
-        <>
-            {/* <form>
+        <div>
+            <form onSubmit={onSubmit}>
                 <label>
                     Search: 
-                    <input type='text' name="search" onChange={''}/>
+                    <input type='text' name="search" onChange={onChange}/>
                 </label>
                 <button>Search</button> 
-            </form> */}
-            {search.map((p) => (
-                <div>{p.title}</div>
+            </form>
+            {initialSearch.map((p) => (
+                <div key={p.pageid}>{p.title}</div>
             ))}
-        </>
+        </div>
     )
 }

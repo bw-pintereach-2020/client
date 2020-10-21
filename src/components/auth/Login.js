@@ -130,9 +130,9 @@ function Login(props) {
     };
 
     useEffect(() => {
-        if(token){
+        if (token) {
             props.history.push('/dashboard')
-          }
+        }
     }, [token, props.history])
 
     useEffect(() => {
@@ -153,7 +153,7 @@ function Login(props) {
                     Password:
                         <Input type='text' name='password' onChange={inputChange} value={formValue.password} />
                 </Label>
-            <Button disabled={disabled}>Login</Button>
+                <Button disabled={disabled}>Login</Button>
             </InputForm>
             <Errors>{formErrors.username}</Errors>
             <Errors>{formErrors.password}</Errors>
@@ -163,6 +163,6 @@ function Login(props) {
 
 const mapStateToProps = state => ({
     state
-  })
-  
-  export default connect(mapStateToProps, { loginUser })(Login)
+})
+
+export default connect(mapStateToProps, { loginUser })(Login)
