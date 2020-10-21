@@ -11,11 +11,10 @@ const StyledNav = styled.nav`
 
     a {
         color: #eeeeee; 
-        font-size: 1.8rem;
         padding: 10px 35px;
     }
 `;
-
+ 
 function NavBar(props){
     const loggedIn = window.localStorage.getItem('token') ? true : false
     const history = useHistory()
