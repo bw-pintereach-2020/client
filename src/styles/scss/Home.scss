@@ -3,6 +3,7 @@
 .home-pg {
   .home-content {
     h2 {
+      text-align: center;
       @include font-size($h2-font-sizes);
     }
     .content-block {
@@ -21,11 +22,13 @@
           figure {
             height: 400px;
             margin: 0;
+            line-height: 2;
             position: relative;
             figcaption {
               position: absolute;
               font-family: $fontSecondary;
               bottom: 0;
+              width: 100%;
               background: map-get($colors, app-green);
             }
             img {
