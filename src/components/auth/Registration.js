@@ -5,6 +5,8 @@ import * as yup from "yup";
 import registerUser from '../../actions/registerUser'
 import { HidePwd, ShowPwd } from "../utils/appIcons.js";
 import '../../styles/scss/Auth.scss'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 //success returns login token
 //routes user to dashboard
 
@@ -28,7 +30,8 @@ const Registration = (props) => {
   const [locked, setLocked] = useState(true);
   const [errs, setErrs] = useState(initErr);
 
-  const { token } = props.state.registerReducer
+  const { token } = props.state.userAuthReducer
+  const loading = props.state.userAuthReducer.inProgress
 
   useEffect(() => {
     // lock form until valid
@@ -74,6 +77,8 @@ const Registration = (props) => {
     <section className='pg register-pg'>
       <h1>Unlock Exclusive Content</h1>
       <form className='auth-form' onSubmit={registerAccount}>
+        {!loading ? 
+        <>
         <fieldset>
           <div className="username form-item">
             <label htmlFor="username">
@@ -167,6 +172,18 @@ const Registration = (props) => {
         <button disabled={locked} type="submit">
           Join the Pintereach Network
         </button>
+        </>
+        : 
+          <>
+            <Loader
+              type="Audio"
+              color="#0c7489"
+              height={100}
+              width={100}
+            />
+            <p>Loading...</p>
+          </>
+        }
       </form>
     </section>
   );

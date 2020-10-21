@@ -16,7 +16,7 @@ const StyledNav = styled.nav`
 `;
  
 function NavBar(props){
-    const loggedIn = window.localStorage.getItem('token') ? true : false
+    const loggedIn = props.state.userAuthReducer.loggedIn || window.localStorage.getItem('token') ? true : false
     const history = useHistory()
     
     const handleLogout = (e) => {
