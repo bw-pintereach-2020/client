@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const initial = {
-    search: "cheese"
-}
-
-
+// const initial = {
+//     search: "cheese"
+// }
 
 export default function Search() {
-    const [initialSearch, setinitialSearch] = useState([]);
-    const [ userSearch, setUserSearch ] = useState([]);
+    const [ initialSearch, setinitialSearch ] = useState([]);
+    const [ userSearch, setUserSearch ] = useState('cheese');
 
     useEffect(() => {
         const getSearch = () => {
-            axios.get(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${initial.search}&origin=*`)
+            axios.get(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${userSearch}&origin=*`)
                 .then(res => {
                     console.log(res.data.query.search, 'axios call')
                     setinitialSearch(res.data.query.search);
@@ -27,17 +25,16 @@ export default function Search() {
 
     const onChange = (e) =>{
         const { name, value } = e.target;
-        setUserSearch({
-            ...userSearch,
-            [name]: value
-        })
+        setUserSearch(value);
+            // ...userSearch,
+            // [name]: value
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
-                axios.get(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${userSearch.search}&origin=*`)
+                axios.get(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${userSearch}&origin=*`)
                 .then((res) => {
-                    setUserSearch(res.data.query.search);
+                    setinitialSearch(res.data.query.search);
                 })
                 .catch((err) => {
                     alert(err);
