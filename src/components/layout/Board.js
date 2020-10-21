@@ -4,6 +4,17 @@ import { connect } from 'react-redux'
 import AddArticle from './AddArticle'
 import Article from './Article'
 import getArticles from '../../actions/getArticles'
+import styled from 'styled-components'
+
+const StyledBoard = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin: 1% 0;
+    padding-bottom: 2%;
+    border-bottom: 1px solid #040404;
+`
 
 function Board(props) {
     const [isOpen, setIsOpen] = useState(false)
@@ -21,15 +32,15 @@ function Board(props) {
     }, [newArticles])
 
     return (
-        <div>
-            <h3>
+        <StyledBoard>
+            <h2>
                 {props.board.name}
                 <span onClick={toggleOpen}>{!isOpen ? ' + ' : ' - '}</span>
-            </h3>
+            </h2>
             {isOpen ? articles.map(article => <Article key={article.id} article={article}/>) : null}            
             {isEditing ? <AddArticle id={props.board.id} setIsEditing={setIsEditing}/> : null}
             {isOpen ? <button onClick={() => {setIsEditing(true)}}>Add Article</button> : null}
-        </div>
+        </StyledBoard>
     )
 }
 

@@ -1,8 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Board from './Board'
 import AddBoard from './AddBoard'
 import { connect } from 'react-redux'
 import getBoards from '../../actions/getBoards'
+import styled from 'styled-components'
+
+const StyledBoards = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
 
 function Boards(props) {
     const { getBoards } = props
@@ -13,11 +20,11 @@ function Boards(props) {
     }, [getBoards])
 
     return (
-        <div>
-            <h2>My Boards</h2>
-            {boards?.map(board => <Board board={board} key={board.id}/>)}
+        <StyledBoards>
+            <h1>My Boards</h1>
             <AddBoard />
-        </div>
+            {boards?.map(board => <Board board={board} key={board.id}/>)}
+        </StyledBoards>
     )
 }
 
