@@ -52,13 +52,14 @@ function AddBoard(props) {
 
     return (
         <div>
-            {!isEditing ? <button onClick={() => {setIsEditing(true)}}>New Board</button> : null }
+            {!isEditing ? <button onClick={() => {setIsEditing(true)}}>Add Board</button> : null }
             {isEditing ?
             <StyledForm>
                 <label>Name</label>
                 <input 
                     type='text'
                     name='name'
+                    placeholder='Thesis'
                     value={values.name}
                     onChange={handleChanges}
                 />
@@ -66,6 +67,7 @@ function AddBoard(props) {
                 <input 
                     type='text'
                     name='description'
+                    placeholder='Articles pertaining to...'
                     value={values.description}
                     onChange={handleChanges}
                 />

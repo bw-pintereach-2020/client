@@ -5,10 +5,11 @@ import { connect } from 'react-redux'
 import getBoards from '../../actions/getBoards'
 import styled from 'styled-components'
 
-const StyledBoards = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+const StyledBoards = styled.section`
+    width: 100%;
+    max-width: 1300px;
+    margin: 2rem auto;
+    text-align: center;
 `
 
 function Boards(props) {
@@ -20,8 +21,8 @@ function Boards(props) {
     }, [getBoards])
 
     return (
-        <StyledBoards>
-            <h1>My Boards</h1>
+        <StyledBoards className='boards'>
+            <h2>Showing {boards?.length} Boards</h2>
             <AddBoard />
             {boards?.map(board => <Board board={board} key={board.id}/>)}
         </StyledBoards>

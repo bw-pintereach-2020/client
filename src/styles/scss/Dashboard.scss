@@ -1,0 +1,31 @@
+@import "config";
+
+.dashboard-pg {
+  .boards {
+    & > h2 {
+      line-height: 0.5;
+      margin-bottom: 10rem;
+      font-style: italic;
+    }
+    .board {
+      & > h3 {
+        text-align: left;
+        font-weight: 300;
+        width: 100%;
+        position: relative;
+        @include font-size($h1-font-sizes);
+        span {
+          position: absolute;
+          top: 1rem;
+          right: 50px;
+        }
+      }
+      .board-content {
+        padding: 3rem 2rem;
+        &:empty {
+          padding: 0 2rem;
+        }
+      }
+    }
+  }
+}

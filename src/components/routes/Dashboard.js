@@ -1,12 +1,14 @@
 import React from 'react'
 import Boards from '../layout/Boards'
+import '../../styles/scss/Dashboard.scss'
 
 function Dashboard() {
 
     return (
-        <div>
+        <section className='pg dashboard-pg'>
+            <h1>My Dashboard</h1>
             <Boards />
-        </div>
+        </section>
     )
 }
 
