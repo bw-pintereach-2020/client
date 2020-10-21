@@ -9,6 +9,8 @@ import { loginSchema } from '../validation/loginSchema';
 import styled from 'styled-components';
 import { connect } from 'react-redux'
 import loginUser from '../../actions/loginUser';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 //STYLES FOR THE FORM
 
@@ -96,6 +98,7 @@ function Login(props) {
     const [disabled, setDisabled] = useState(initialDisabled);
 
     const { token } = props.state.userAuthReducer
+    const loading = props.state.userAuthReducer.inProgress
 
     const inputChange = (evt) => {
         const { name, value } = evt.target;
@@ -145,15 +148,29 @@ function Login(props) {
     return (
         <Form className="formContainer">
             <InputForm >
-                <Label>
-                    Username:
-                        <Input type='text' name='username' onChange={inputChange} value={formValue.username} />
-                </Label>
-                <Label>
-                    Password:
-                        <Input type='text' name='password' onChange={inputChange} value={formValue.password} />
-                </Label>
-            <Button disabled={disabled} onClick={submit}>Login</Button>
+                {!loading ?
+                    <>
+                        <Label>
+                            Username:
+                    <Input type='text' name='username' onChange={inputChange} value={formValue.username} />
+                        </Label>
+                        <Label>
+                            Password:
+                    <Input type='text' name='password' onChange={inputChange} value={formValue.password} />
+                        </Label>
+                        <Button disabled={disabled} onClick={submit}>Login</Button>
+                    </>
+                    :
+                    <> 
+                    <Loader
+                        type="Audio"
+                        color="#0c7489"
+                        height={100}
+                        width={100}
+                    />
+                    <p>Loading...</p>
+                    </>
+                }
             </InputForm>
             <Errors>{formErrors.username}</Errors>
             <Errors>{formErrors.password}</Errors>
