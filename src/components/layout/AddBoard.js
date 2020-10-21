@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import addBoard from '../actions/addBoard'
-import getBoards from '../actions/getBoards'
+import addBoard from '../../actions/addBoard'
+import getBoards from '../../actions/getBoards'
 
 const initialValues = {
     name: '',

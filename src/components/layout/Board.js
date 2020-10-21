@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import AddArticle from './AddArticle'
 import Article from './Article'
-import getArticles from '../actions/getArticles'
+import getArticles from '../../actions/getArticles'
 
 function Board(props) {
     const [isOpen, setIsOpen] = useState(false)

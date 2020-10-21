@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Board from './Board'
 import AddBoard from './AddBoard'
 import { connect } from 'react-redux'
-import getBoards from '../actions/getBoards'
+import getBoards from '../../actions/getBoards'
 
 function Boards(props) {
     const { getBoards } = props
