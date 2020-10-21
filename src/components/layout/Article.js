@@ -11,6 +11,7 @@ function Article(props) {
     return (
         <StyledArticle>
             <h3>{props.article.title}</h3>
+            {/* <img src={props.article.image} alt={props.article.title}/> */}
             <p>{props.article.description}</p>
         </StyledArticle>
     )

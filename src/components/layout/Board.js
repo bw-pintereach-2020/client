@@ -31,13 +31,17 @@ function Board(props) {
         getArticles()
     }, [newArticles])
 
+    const sortArticles = () => {
+        return articles.map(article => article.board_id === props.board.id ? <Article key={article.id} article={article}/> : null)
+    }
+
     return (
         <StyledBoard>
             <h2>
                 {props.board.name}
                 <span onClick={toggleOpen}>{!isOpen ? ' + ' : ' - '}</span>
             </h2>
-            {isOpen ? articles.map(article => <Article key={article.id} article={article}/>) : null}            
+            {isOpen ? sortArticles() : null}            
             {isEditing ? <AddArticle id={props.board.id} setIsEditing={setIsEditing}/> : null}
             {isOpen ? <button onClick={() => {setIsEditing(true)}}>Add Article</button> : null}
         </StyledBoard>
