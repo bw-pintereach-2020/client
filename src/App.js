@@ -18,14 +18,14 @@ import './styles/App.css'
 function App() {
   return (
     <div className='App'>
-       <NavBar/>
-       
-         <Route exact path='/' component={Home} />
-         <PrivateRoute exact path ='/dashboard' component={Dashboard} />
-         <Route exact path='/register' component={Registration} />
-         <Route exact path='/login' component={Login} />
-       
-       <Footer/>
+      <NavBar />
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <PrivateRoute exact path='/dashboard' component={Dashboard} />
+        <Route exact path='/register' component={Registration} />
+        <Route exact path='/login' component={Login} />
+      </Switch>
+      <Footer />
     </div>
   )
 }
