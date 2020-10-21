@@ -12,8 +12,8 @@ function Home() {
         <section className='pg home-pg'>
             <h1>Pintereach</h1>
             <h2>Save now, Study later</h2>
-            <NewsBlock/>
             <Search/>
+            <NewsBlock/>
         </section>
     )
 }

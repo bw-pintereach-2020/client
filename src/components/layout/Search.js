@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-// const initial = {
-//     search: "cheese"
-// }
+import '../../styles/scss/Home.scss'
 
 export default function Search() {
     const [ initialSearch, setinitialSearch ] = useState([]);
@@ -26,8 +23,6 @@ export default function Search() {
     const onChange = (e) =>{
         const { name, value } = e.target;
         setUserSearch(value);
-            // ...userSearch,
-            // [name]: value
     }
 
     const onSubmit = (e) => {
@@ -42,7 +37,7 @@ export default function Search() {
     }
 
     return (
-        <div>
+        <section className="home-content">
             <form onSubmit={onSubmit}>
                 <label>
                     Search: 
@@ -50,9 +45,11 @@ export default function Search() {
                 </label>
                 <button>Search</button> 
             </form>
-            {initialSearch.map((p) => (
-                <div key={p.pageid}>{p.title}</div>
+            {initialSearch.map((p, i) => (
+                <ul> 
+                <li key={p.i}>{p.title}</li>
+                </ul>
             ))}
-        </div>
+        </section>
     )
 }
