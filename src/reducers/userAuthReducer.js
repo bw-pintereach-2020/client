@@ -3,6 +3,7 @@ import { LOGOUT_START, LOGOUT_SUCCESS, LOGOUT_FAILURE } from '../actions/logoutU
 
 const initialState = {
     inProgress: false,
+    loggedIn: false,
     message: '',
     token: '',
     user: {},
@@ -15,13 +16,13 @@ function userAuthReducer(state = initialState, action) {
         case LOGIN_USER_START:
             return { ...state, inProgress: true }
         case LOGIN_USER_SUCCESS:
-            return { ...state, inProgress: false, message: payload.message, token: payload.token, user: payload.user }
+            return { ...state, inProgress: false, loggedIn: true, message: payload.message, token: payload.token, user: payload.user }
         case LOGIN_USER_FAILURE:
             return { ...state, inProgress: false, error: payload.message }
         case LOGOUT_START:
             return { ...state, inProgress: true }
         case LOGOUT_SUCCESS:
-            return { ...state, inProgress: false }
+            return { ...state, inProgress: false, loggedIn: false, message: '', token: '', user: {} }
         case LOGOUT_FAILURE:
             return { ...state, inProgress: false, error: 'Logout Failed' }
         default:

@@ -125,7 +125,6 @@ function Login(props) {
             username: formValue.username,
             password: formValue.password,
         };
-        console.log('submit clicked')
         props.loginUser(newLogin)
         setFormValue(initalFormValues);
     };
