@@ -1,6 +1,7 @@
 import React from 'react';
 import NewsBlock from '../layout/NewsBlock';
 import "../../styles/scss/Home.scss";
+import Search from "../layout/Search"
 //main landing page 
 //contains basic marketing material
 //navbar routes to login or register
@@ -12,6 +13,7 @@ function Home() {
             <h1>Pintereach</h1>
             <h2>Save now, Study later</h2>
             <NewsBlock/>
+            <Search/>
         </section>
     )
 }
