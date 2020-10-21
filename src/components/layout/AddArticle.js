@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import addArticle from '../actions/addArticle'
-import getArticles from '../actions/getArticles'
+import addArticle from '../../actions/addArticle'
+import getArticles from '../../actions/getArticles'
 
 const initialValues = {
     title: '',

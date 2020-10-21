@@ -1,5 +1,4 @@
 import React from "react";
-import "../../styles/scss/Home.scss";
 
 const truncate = (str, max, suffix) => str.length < max ? str : `${str.substr(0, str.substr(0, max - suffix.length).lastIndexOf(' '))}${suffix}`;
 

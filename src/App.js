@@ -3,12 +3,12 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 //components
-import Dashboard from './components/Dashboard'
+import Dashboard from './components/routes/Dashboard'
 import NavBar from './components/NavBar'
-import Home from './components/Home'
-import Login from './components/Login'
-import Registration from './components/Registration'
-import PrivateRoute from './components/PrivateRoute'
+import Home from './components/routes/Home'
+import Login from './components/auth/Login'
+import Registration from './components/auth/Registration'
+import PrivateRoute from './components/auth/PrivateRoute'
 
 //styles
 import './styles/App.css'

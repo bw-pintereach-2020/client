@@ -2,12 +2,11 @@
 //submit posted to back end
 //success returns login token 
 //routes to dashboard
-
 import React, { useState , useEffect} from 'react';
 import * as yup from 'yup';
-import { loginSchema } from './validation/loginSchema';
+import { loginSchema } from '../validation/loginSchema';
 import { connect } from 'react-redux'
-import loginUser from '../actions/loginUser';
+import loginUser from '../../actions/loginUser';
 
 const initalFormValues = {
     username: '',

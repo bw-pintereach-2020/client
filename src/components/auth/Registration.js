@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux'
-import { registerSchema } from "./validation/registerSchema";
+import { registerSchema } from "../validation/registerSchema";
 import * as yup from "yup";
-import registerUser from '../actions/registerUser'
-import { HidePwd, ShowPwd } from "./utils/appIcons.js";
-import '../styles/scss/Auth.scss'
+import registerUser from '../../actions/registerUser'
+import { HidePwd, ShowPwd } from "../utils/appIcons.js";
+import '../../styles/scss/Auth.scss'
 //success returns login token
 //routes user to dashboard
 
