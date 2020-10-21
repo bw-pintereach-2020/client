@@ -22,7 +22,6 @@ const NavContents = styled.ul`
 
 const NavItems = styled.li`
     color: #eeeeee; 
-    font-size: 1.8rem;
     padding: 10px 35px;
 `;
 

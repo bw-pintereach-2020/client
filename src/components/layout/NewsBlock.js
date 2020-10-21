@@ -35,7 +35,7 @@ const NewsBlock = () => {
     }, [])
     return (
         <section className="home-content">
-            <h2>Latest Findings</h2>
+            <h2>The Latest Research</h2>
             <ul className='content-block'>
             {articles.map((a, i) => {
                 return (<li key={i}><NewsTile article={a}/></li>)

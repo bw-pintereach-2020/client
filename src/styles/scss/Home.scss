@@ -1,17 +1,24 @@
 @import "config";
 
 .home-pg {
+  & > h2 {
+    font-style: italic;
+  }
   .home-content {
+    margin: 10rem auto;
     h2 {
       text-align: center;
-      @include font-size($h2-font-sizes);
+      font-family: $fontSecondary;
+      line-height: 1.25;
+      font-weight: 300;
+      @include font-size($bigh-font-sizes);
     }
     .content-block {
       @include font-size($sub-font-sizes);
       text-align: center;
       width: 100%;
-      margin: auto;
       max-width: 1300px;
+      margin: auto;
       li {
         display: inline-block;
         width: calc(100% / 3);
@@ -24,6 +31,7 @@
             margin: 0;
             line-height: 2;
             position: relative;
+            border: 1px solid map-get($colors, app-dark-green);
             figcaption {
               position: absolute;
               font-family: $fontSecondary;

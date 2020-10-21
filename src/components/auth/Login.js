@@ -66,6 +66,7 @@ const Button = styled.button`
     height: 5vh;
     font-size: 2rem;
     background-color: #119DA4;
+    color: white;
 `;
 
 const Errors = styled.div`
@@ -146,6 +147,8 @@ function Login(props) {
 
 
     return (
+        <>
+        <h1>Welcome Back</h1>
         <Form className="formContainer">
             <InputForm >
                 {!loading ?
@@ -175,6 +178,7 @@ function Login(props) {
             <Errors>{formErrors.username}</Errors>
             <Errors>{formErrors.password}</Errors>
         </Form>
+        </>
     )
 }
 

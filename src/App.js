@@ -13,6 +13,7 @@ import PrivateRoute from './components/auth/PrivateRoute'
 
 //styles
 import './styles/App.css'
+import './styles/scss/Global.scss'
 
 //App
 function App() {
