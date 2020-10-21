@@ -4,12 +4,15 @@
 //footer contains social media links and contact info
 
 import React from 'react'
+import NewsBlock from './layout/NewsBlock'
 
 function Home() {
     return (
-        <div>
+        <section>
             <h1>Pintereach</h1>
-        </div>
+            <h2>Save it now. Study later.</h2>
+            <NewsBlock/>
+        </section>
     )
 }
 
