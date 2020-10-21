@@ -20,8 +20,7 @@ export default [
         "A cultured meat research program led by a Spanish biotech firm has been awarded a €2.7M grant under the European Union’s Horizon 2020 R&D funding framework. The consortium project, called ‘Meat4All’, says it’s the first lab-grown meat research effort to get p…",
       url:
         "http://techcrunch.com/2020/10/14/lab-grown-meat-project-gets-first-taste-of-eu-public-funds/",
-      urlToImage:
-        "https://techcrunch.com/wp-content/uploads/2019/02/GettyImages-1071525408.jpg?w=600",
+      urlToImage: null,
       publishedAt: "2020-10-14T12:49:20Z",
       content:
         "A cultured meat research program led by a Spanish biotech firm has been awarded a 2.7M grant under the European Union’s Horizon 2020 R&amp;D funding framework. The consortium project, called ‘Meat4Al…",
