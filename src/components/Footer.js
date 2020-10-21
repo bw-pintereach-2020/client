@@ -26,13 +26,17 @@ const NavItems = styled.li`
     padding: 10px 35px;
 `;
 
+const FooterLogo = styled.img`
+    width: 35px;
+`;
+
 export default function Footer() {
     return (
         <BottomNav>
             <NavContents>
-            <Link to="/"><NavItems>Home</NavItems></Link>
-            <Link to="/login"><NavItems>Login</NavItems></Link>
-            <Link to="/register"><NavItems>Register</NavItems></Link>
+                <Link to="/"><NavItems>Home</NavItems></Link>
+                <Link to="/login"><NavItems>Login</NavItems></Link>
+                <Link to="/register"><NavItems>Register</NavItems></Link>
             </NavContents>
         </BottomNav>
     );
