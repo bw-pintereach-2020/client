@@ -22,6 +22,7 @@
         padding: 6px 10px;
         margin: 0 10px;
         border-radius: 20px;
+        outline: none;
       }
     }
     .wiki-list {
@@ -34,10 +35,9 @@
         width: 380px;
         height: 100px;
         margin: 10px;
-        border-radius: 30px;
+        border-radius: 20px;
         img{
-          width: 30%;
-          border-radius: 30px;
+          width: 28%;
         }
         li:nth-child(2) {
           margin: 35px auto;
@@ -46,55 +46,7 @@
         }
       }
     }
-  }
-  // text-align: center;
-  // padding: 20px;
-
-  // form {
-  //   padding-bottom: 20px;
-
-  //   label {
-  //     font-size: 25px;
-
-  //     input {
-  //       border-radius: 15px;
-  //       outline: none;
-  //       width: 25vw;
-  //       height: 4vh;
-  //       font-size: 18px;
-  //       padding-left: 10px;
-  //       margin: 0 10px;
-  //     }
-  //   }
-
-
-  // .unordered {
-  //   margin: 0 auto;
-  //   width: 40%;
-  //   text-align: start;
-
-  //   ul {
-  //     // border: 1px solid black;
-  //     border-radius: 20px;
-  //     margin: 15px 0;
-  //     padding: 10px;
-  //   }
-
-  //   li {
-  //     margin-top: 10px;
-
-  //     &:nth-child(1) {
-  //       font-size: 25px;
-  //       border-bottom: 1px solid black;
-  //       padding: 0 0 4px;
-  //     }
-
-  //     &:nth-child(2) {
-  //       font-size: 15px;
-  //     }
-  //   }
-  // }
-
+}  
 .home-content {
   h2 {
     text-align: center;

@@ -48,7 +48,7 @@ export default function Search() {
             <div className="wiki-list">
                 {initialSearch.map((p, i) => (
                     <ul>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Wikipedia_mobile_app_logo.png"/>
+                        <img src="https://img.icons8.com/ios/452/wikipedia.png" alt="wikipedia icon"/>
                         <li key={p.i}>{p.title}</li>
                         {/* <li key={p.i}>{p.timestamp}</li> */}
                     </ul>
