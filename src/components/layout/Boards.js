@@ -6,10 +6,11 @@ import getBoards from '../../actions/getBoards'
 import styled from 'styled-components'
 import getArticles from '../../actions/getArticles'
 
-const StyledBoards = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+const StyledBoards = styled.section`
+    width: 100%;
+    max-width: 1300px;
+    margin: 2rem auto;
+    text-align: center;
 `
 
 function Boards(props) {
@@ -23,9 +24,8 @@ function Boards(props) {
     }, [getBoards, getArticles, newBoard])
 
     return (
-        <StyledBoards>
-            <h1>My Boards</h1>
-            <AddBoard />
+        <StyledBoards className='boards'>
+            <AddBoard len={boards.length} />
             {boards.map(board => <Board board={board} key={board.id}/>)}
         </StyledBoards>
     )

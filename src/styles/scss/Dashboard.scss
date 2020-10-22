@@ -1,0 +1,63 @@
+@import "config";
+
+.dashboard-pg {
+  .boards {
+    position: relative;
+    background-color: rgba($color: map-get($colors, app-white), $alpha: 0.65);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    background-attachment: fixed;
+    border-radius: 0.8rem;
+    backdrop-filter: blur(5px);
+    padding: 1rem 1rem 5rem;
+    .add-article {
+      & > h2 {
+        line-height: 2;
+      }
+      & > h3 {
+        line-height: 1;
+        font-style: italic;
+        margin-bottom: 4rem;
+      }
+      button {
+        background: map-get($colors, app-blue);
+        color: white;
+        border-radius: 0.8rem;
+        border: none;
+        padding: 0.5rem 2rem;
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      }
+    }
+    .board {
+      & > h3 {
+        text-align: left;
+        font-weight: 300;
+        width: 100%;
+        position: relative;
+        @include font-size($h1-font-sizes);
+        span {
+          position: absolute;
+          top: 1rem;
+          right: 50px;
+        }
+      }
+      .board-content {
+        padding: 3rem 2rem;
+        &:empty {
+          padding: 0 2rem;
+        }
+        .add-btn {
+          background: map-get($colors, app-white);
+          color: map-get($colors, app-blue);
+          border-radius: 0.8rem;
+          border: 2px solid map-get($colors, app-blue);
+          padding: 0.5rem 2rem;
+          margin: 3rem auto;
+          cursor: pointer;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+            0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+      }
+    }
+  }
+}

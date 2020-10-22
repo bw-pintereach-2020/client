@@ -7,10 +7,10 @@ import { connect } from 'react-redux'
 const StyledNav = styled.nav`
     display: flex; 
     justify-content: flex-end;
-    background-color: #119DA4;
+    background-color: #040404;
 
     a {
-        color: #eeeeee; 
+        color: #ffffff; 
         padding: 10px 35px;
     }
 `;

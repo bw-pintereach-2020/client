@@ -41,7 +41,3 @@ footer a {
   font-family: $fontPrimary;
   @include font-size($h2-font-sizes);
 }
-
-// search terms => ['statistics', 'IRB', 'research ethics', ''...]
-// loop through 6, pick a random spot in the array
-//

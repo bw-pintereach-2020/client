@@ -27,6 +27,7 @@ const initialValues = {
 }
 
 function AddBoard(props) {
+    const {len} = props
     const [isEditing, setIsEditing] = useState(false)
     const [values, setValues] = useState(initialValues)
 
@@ -50,14 +51,17 @@ function AddBoard(props) {
     }
 
     return (
-        <div>
-            {!isEditing ? <button onClick={() => {setIsEditing(true)}}>New Board</button> : null }
+        <div className='add-article'>
+            <h2>My Pintereach Boards</h2>
+            <h3>Save your articles, here</h3>
+    {!isEditing ? <button onClick={() => {setIsEditing(true)}}>{len === 0 ? 'Create Your First Board': 'Add Another Board'}</button> : null }
             {isEditing ?
             <StyledForm>
                 <label>Name</label>
                 <input 
                     type='text'
                     name='name'
+                    placeholder='Thesis'
                     value={values.name}
                     onChange={handleChanges}
                 />
@@ -65,6 +69,7 @@ function AddBoard(props) {
                 <input 
                     type='text'
                     name='description'
+                    placeholder='Articles pertaining to...'
                     value={values.description}
                     onChange={handleChanges}
                 />
