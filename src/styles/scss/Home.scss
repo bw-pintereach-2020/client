@@ -5,6 +5,73 @@
     font-style: italic;
   }
   .home-content {
+    margin: 50px 0;
+    text-align: center;
+
+    .search-form {
+      margin: 0 0 50px;
+
+      label {
+        font-size: 20px;
+
+        input {
+          font-size: 18px;
+          border-radius: 30px;
+          width: 200px;
+          height: 30px;
+          margin-left: 10px;
+          padding-left: 15px;
+          outline: none;
+        }
+      }
+
+      button {
+        padding: 6px 10px;
+        margin: 0 10px;
+        border-radius: 20px;
+        outline: none;
+      }
+    }
+
+    .wiki-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+
+      a {
+        color: black;
+
+        &:visited {
+          color: black;
+      }
+          ul {
+            display: flex;
+            background-color: #c6c9bd;
+            width: 380px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 20px;
+            border: 4px solid black;
+
+            &:hover {
+              border-color: #119DA4;
+              color: #119DA4;
+            }
+          }
+        img {
+          width: 28%;
+          background-color: #c6c9bd;
+          border-top-left-radius: 20px;
+          border-bottom-left-radius: 20px;
+        }
+
+        li:nth-child(2) {
+          margin: 35px auto;
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+    }
     margin: 10rem auto;
     background-color: rgba($color: map-get($colors, app-white), $alpha: 0.65);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -20,6 +87,7 @@
       font-weight: 300;
       @include font-size($bigh-font-sizes);
     }
+
     .content-block {
       @include font-size($p-font-sizes);
       text-align: center;
@@ -30,6 +98,7 @@
       li {
         display: inline-block;
         width: calc(100% / 3);
+
         a {
           display: inline-block;
           color: map-get($colors, app-white);
@@ -50,6 +119,7 @@
               background: map-get($colors, app-dark);
               color: map-get($colors, app-white);
             }
+
             img {
               width: 100%;
               height: 100%;
