@@ -1,9 +1,8 @@
 //single article board by category, e.g. work
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import AddArticle from './AddArticle'
 import Article from './Article'
-import getArticles from '../../actions/getArticles'
 import styled from 'styled-components'
 
 const StyledBoard = styled.div`
@@ -19,17 +18,15 @@ const StyledBoard = styled.div`
 function Board(props) {
     const [isOpen, setIsOpen] = useState(false)
     const [isEditing, setIsEditing] = useState(false)
-    const { articles } = props.state.getArticlesReducer
-    const newArticles = props.state.addArticleReducer.articles
+    const { articles } = props.state.articlesReducer
 
     const toggleOpen = () => {
         setIsOpen(!isOpen)
-        props.getArticles()
     }
 
-    useEffect(() => {
-        getArticles()
-    }, [newArticles])
+    const sortArticles = () => {
+        return articles.map(article => article.board_id === props.board.id ? <Article key={article.id} article={article}/> : null)
+    }
 
     return (
         <StyledBoard>
@@ -37,7 +34,7 @@ function Board(props) {
                 {props.board.name}
                 <span onClick={toggleOpen}>{!isOpen ? ' + ' : ' - '}</span>
             </h2>
-            {isOpen ? articles.map(article => <Article key={article.id} article={article}/>) : null}            
+            {isOpen ? sortArticles() : null}            
             {isEditing ? <AddArticle id={props.board.id} setIsEditing={setIsEditing}/> : null}
             {isOpen ? <button onClick={() => {setIsEditing(true)}}>Add Article</button> : null}
         </StyledBoard>
@@ -48,4 +45,4 @@ const mapStateToProps = state => ({
     state
 })
 
-export default connect(mapStateToProps, { getArticles })(Board)
+export default connect(mapStateToProps, {})(Board)
