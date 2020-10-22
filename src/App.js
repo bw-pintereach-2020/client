@@ -13,19 +13,20 @@ import PrivateRoute from './components/auth/PrivateRoute'
 
 //styles
 import './styles/App.css'
+import './styles/scss/Global.scss'
 
 //App
 function App() {
   return (
     <div className='App'>
-       <NavBar/>
-       <Switch>
-         <Route exact path='/' component={Home} />
-         <PrivateRoute exact path ='/dashboard' component={Dashboard} />
-         <Route exact path='/register' component={Registration} />
-         <Route exact path='/login' component={Login} />
-       </Switch>
-       <Footer/>
+      <NavBar />
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <PrivateRoute exact path='/dashboard' component={Dashboard} />
+        <Route exact path='/register' component={Registration} />
+        <Route exact path='/login' component={Login} />
+      </Switch>
+      <Footer />
     </div>
   )
 }

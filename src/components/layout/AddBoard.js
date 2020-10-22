@@ -2,6 +2,23 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import addBoard from '../../actions/addBoard'
 import getBoards from '../../actions/getBoards'
+import styled from 'styled-components'
+
+const StyledForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .button-container {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+
+        button {
+            margin: 1%;
+        }
+    }
+`
 
 const initialValues = {
     name: '',
@@ -35,9 +52,9 @@ function AddBoard(props) {
 
     return (
         <div>
-            <button onClick={() => {setIsEditing(true)}}>New Board</button>
+            {!isEditing ? <button onClick={() => {setIsEditing(true)}}>New Board</button> : null }
             {isEditing ?
-            <form>
+            <StyledForm>
                 <label>Name</label>
                 <input 
                     type='text'
@@ -61,9 +78,11 @@ function AddBoard(props) {
                     onChange={handleChanges}
                 />
                 </label>
-                <button onClick={handleSubmit}>Save</button>
-                <button onClick={closeForm}>Close</button>
-            </form>
+                <div className='button-container'>
+                    <button onClick={handleSubmit}>Save</button>
+                    <button onClick={closeForm}>Close</button>
+                </div>
+            </StyledForm>
             : null
             }
         </div>

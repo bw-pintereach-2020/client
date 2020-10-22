@@ -1,19 +1,25 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-function PrivateRoute({component:Component, ...rest}) {
+function PrivateRoute(props) {
+    const loggedIn = props.state.userAuthReducer.loggedIn
+    const Component = props.component
     return(
         <Route 
-        { ...rest }
-        render={(props) => {
-            if (window.localStorage.getItem('token')) {
-                return <Component {...props} />
+        render={() => {
+            if (loggedIn || window.localStorage.getItem('token')) {
+                return <Component />
             } else {
-                return <Redirect to='/register' />
+                return <Redirect to='/' />
             }
         }}
         />
     )
 }
 
-export default PrivateRoute
+const mapStateToProps = state => ({
+    state
+})
+
+export default connect(mapStateToProps, {})(PrivateRoute)

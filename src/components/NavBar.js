@@ -11,19 +11,12 @@ const StyledNav = styled.nav`
 
     a {
         color: #eeeeee; 
-        font-size: 1.8rem;
         padding: 10px 35px;
     }
 `;
-
-// const NavBarListItems = styled.a`
-//     color: #eeeeee; 
-//     font-size: 1.8rem;
-//     padding: 10px 35px;
-// `;
-
+ 
 function NavBar(props){
-    const loggedIn = window.localStorage.getItem('token') ? true : false
+    const loggedIn = props.state.userAuthReducer.loggedIn || window.localStorage.getItem('token') ? true : false
     const history = useHistory()
     
     const handleLogout = (e) => {
@@ -35,9 +28,9 @@ function NavBar(props){
     const publicNav = () => {
         return(
             <StyledNav>
-                <Link to="/"><li>Home</li></Link>
-                <Link to="/login"><li>Login</li></Link>
-                <Link to="/register"><li>Register</li></Link>
+                <Link to="/">Home</Link>
+                <Link to="/login">Login</Link>
+                <Link to="/register">Register</Link>
             </StyledNav>
         )
     }

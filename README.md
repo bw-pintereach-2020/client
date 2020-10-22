@@ -1,3 +1,4 @@
+Product Description: https://www.notion.so/Pintereach-d1a7291751a340ab9914cf05a016c1d1
 Back End Repo: https://github.com/ljh-c/pintereach
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
