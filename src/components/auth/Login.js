@@ -134,9 +134,9 @@ function Login(props) {
     };
 
     useEffect(() => {
-        if(token){
+        if (token) {
             props.history.push('/dashboard')
-          }
+        }
     }, [token, props.history])
 
     useEffect(() => {
@@ -150,6 +150,7 @@ function Login(props) {
         <>
         <h1>Welcome Back</h1>
         <Form className="formContainer">
+
             <InputForm >
                 {!loading ?
                     <>
@@ -174,6 +175,7 @@ function Login(props) {
                     <p>Logging In</p>
                     </>
                 }
+
             </InputForm>
             <Errors>{formErrors.username}</Errors>
             <Errors>{formErrors.password}</Errors>
@@ -184,6 +186,6 @@ function Login(props) {
 
 const mapStateToProps = state => ({
     state
-  })
-  
-  export default connect(mapStateToProps, { loginUser })(Login)
+})
+
+export default connect(mapStateToProps, { loginUser })(Login)
