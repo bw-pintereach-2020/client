@@ -6,7 +6,6 @@ import userAuthReducer from './userAuthReducer'
 import addBoardReducer from './addBoardReducer'
 import getBoardsReducer from './getBoardsReducer'
 import articlesReducer from './articlesReducer'
-import deleteArticleReducer from './deleteArticleReducer'
 
 //root reducer
 const rootReducer = combineReducers({
@@ -14,7 +13,6 @@ const rootReducer = combineReducers({
     addBoardReducer,
     getBoardsReducer,
     articlesReducer,
-    deleteArticleReducer,
 })
 
 //export reducer
