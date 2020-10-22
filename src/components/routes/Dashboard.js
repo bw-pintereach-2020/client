@@ -6,7 +6,7 @@ function Dashboard() {
 
     return (
         <section className='pg dashboard-pg'>
-            <h1>My Dashboard</h1>
+            <h1>Welcome to Pintereach</h1>
             <Boards />
         </section>
     )

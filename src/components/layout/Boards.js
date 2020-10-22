@@ -22,8 +22,7 @@ function Boards(props) {
 
     return (
         <StyledBoards className='boards'>
-            <h2>Showing {boards?.length} Boards</h2>
-            <AddBoard />
+            <AddBoard len={boards.length} />
             {boards?.map(board => <Board board={board} key={board.id}/>)}
         </StyledBoards>
     )
