@@ -41,7 +41,7 @@ export default function Search() {
             <form className='search-form' onSubmit={onSubmit}>
                 <label>
                     Search:
-                    <input type='text' name="search" onChange={onChange} />
+                    <input type='text' name="search" onChange={onChange}/>
                 </label>
                 <button>Search</button>
             </form>
