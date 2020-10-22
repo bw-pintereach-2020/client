@@ -4,7 +4,7 @@ import '../../styles/scss/Home.scss'
 
 export default function Search() {
     const [initialSearch, setinitialSearch] = useState([]);
-    const [userSearch, setUserSearch] = useState('cheese');
+    const [userSearch, setUserSearch] = useState('news channels');
 
     useEffect(() => {
         const getSearch = () => {
@@ -47,11 +47,12 @@ export default function Search() {
             </form>
             <div className="wiki-list">
                 {initialSearch.map((p, i) => (
+                    <a target="_blank"href={`https://en.wikipedia.org/wiki/${p.title}`}>
                     <ul>
                         <img src="https://img.icons8.com/ios/452/wikipedia.png" alt="wikipedia icon"/>
                         <li key={p.i}>{p.title}</li>
-                        {/* <li key={p.i}>{p.timestamp}</li> */}
                     </ul>
+                    </a>
                 ))}
             </div>
         </section>
