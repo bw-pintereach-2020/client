@@ -7,6 +7,7 @@ import addBoardReducer from './addBoardReducer'
 import getBoardsReducer from './getBoardsReducer'
 import addArticleReducer from './addArticleReducer'
 import getArticlesReducer from './getArticlesReducer'
+import deleteArticleReducer from './deleteArticleReducer'
 
 //root reducer
 const rootReducer = combineReducers({
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     addBoardReducer,
     getBoardsReducer,
     addArticleReducer,
-    getArticlesReducer
+    getArticlesReducer,
+    deleteArticleReducer,
 })
 
 //export reducer
