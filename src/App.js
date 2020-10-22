@@ -18,8 +18,10 @@ import './styles/scss/Global.scss'
 //App
 function App() {
   return (
-    <div className='App'>
+    <>
+      <header>
       <NavBar />
+      </header>
       <Switch>
         <Route exact path='/' component={Home} />
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
@@ -27,7 +29,7 @@ function App() {
         <Route exact path='/login' component={Login} />
       </Switch>
       <Footer />
-    </div>
+    </>
   )
 }
 export default App

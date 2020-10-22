@@ -47,10 +47,10 @@
           padding: 0 2rem;
         }
         .add-btn {
-          background: map-get($colors, app-white);
-          color: map-get($colors, app-blue);
+          background: map-get($colors, app-blue);
+          color: white;
           border-radius: 0.8rem;
-          border: 2px solid map-get($colors, app-blue);
+          border: none;
           padding: 0.5rem 2rem;
           margin: 3rem auto;
           cursor: pointer;

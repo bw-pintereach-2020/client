@@ -76,9 +76,30 @@ const Registration = (props) => {
   return (
     <section className='pg register-pg'>
       <h1>Unlock Exclusive Content</h1>
+      <h2>With a free membership</h2>
       <form className='auth-form' onSubmit={registerAccount}>
         {!loading ? 
         <>
+        {errs.username.length > 0 && (
+              <p className="err" id="username-error">
+                {errs.username}
+              </p>
+            )}
+        {errs.email.length > 0 && (
+              <p className="err" id="email-error">
+                {errs.email}
+              </p>
+            )}
+        {errs.password.length > 0 && (
+              <p className="err" id="password-err">
+                {errs.password}
+              </p>
+            )}
+        {register.passwordmatch.length > 0 && register.passwordmatch !== register.password && (
+                <p className="err" id="matching-password-error">
+                  {errs.passwordmatch}
+                </p>
+              )}        
         <fieldset>
           <div className="username form-item">
             <label htmlFor="username">
@@ -149,26 +170,6 @@ const Registration = (props) => {
             </label>
           </div>
         </fieldset>
-        {errs.username.length > 0 && (
-              <p className="err" id="username-error">
-                {errs.username}
-              </p>
-            )}
-        {errs.email.length > 0 && (
-              <p className="err" id="email-error">
-                {errs.email}
-              </p>
-            )}
-        {errs.password.length > 0 && (
-              <p className="err" id="password-err">
-                {errs.password}
-              </p>
-            )}
-        {register.passwordmatch.length > 0 && register.passwordmatch !== register.password && (
-                <p className="err" id="matching-password-error">
-                  {errs.passwordmatch}
-                </p>
-              )}
         <button disabled={locked} type="submit">
           Join the Pintereach Network
         </button>
