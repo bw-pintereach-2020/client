@@ -160,7 +160,7 @@ function Login(props) {
                         </Label>
                         <Label>
                             Password:
-                    <Input type='text' name='password' onChange={inputChange} value={formValue.password} />
+                    <Input type='password' name='password' onChange={inputChange} value={formValue.password} />
                         </Label>
                         <Button disabled={disabled} onClick={submit}>Login</Button>
                     </>
