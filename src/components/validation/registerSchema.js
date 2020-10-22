@@ -18,7 +18,7 @@ export const registerSchema = yup.object().shape({
       .max(92, "Password can be no more than 92 chars")
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/,
-        "Please include at least 1 uppercase char, 1 number, and 1 special character."
+        "Password should have 1 uppercase char, 1 number, and 1 special character."
       ),
     passwordmatch: yup
     .string()
