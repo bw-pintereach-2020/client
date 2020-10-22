@@ -40,7 +40,6 @@ function AddBoard(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         props.addBoard(values)
-        props.getBoards()
         setIsEditing(false)
         setValues(initialValues)
     }
