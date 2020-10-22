@@ -14,18 +14,19 @@ const StyledBoards = styled.div`
 
 function Boards(props) {
     const { getBoards, getArticles } = props
-    const { boards } = props.state.getBoardsReducer
+    const { boards } = props.state.boardsReducer
+    const { newBoard } = props.state.boardsReducer
 
     useEffect(() => {
         getBoards()
         getArticles()
-    }, [getBoards, getArticles])
+    }, [getBoards, getArticles, newBoard])
 
     return (
         <StyledBoards>
             <h1>My Boards</h1>
             <AddBoard />
-            {boards?.map(board => <Board board={board} key={board.id}/>)}
+            {boards.map(board => <Board board={board} key={board.id}/>)}
         </StyledBoards>
     )
 }

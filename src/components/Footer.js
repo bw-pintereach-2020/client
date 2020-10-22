@@ -25,9 +25,9 @@ const NavItems = styled.li`
     padding: 10px 35px;
 `;
 
-const FooterLogo = styled.img`
-    width: 35px;
-`;
+// const FooterLogo = styled.img`
+//     width: 35px;
+// `;
 
 export default function Footer() {
     return (
