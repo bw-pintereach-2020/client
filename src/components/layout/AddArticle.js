@@ -4,10 +4,7 @@ import addArticle from '../../actions/addArticle'
 import getArticles from '../../actions/getArticles'
 
 const initialValues = {
-    title: '',
     url: '',
-    image: '',
-    description: '',
     notes: '', 
 }
 
@@ -23,7 +20,6 @@ function AddArticle(props) {
         e.preventDefault()
         const newArticle = { url: values.url, board_id: props.id, notes: values.notes }
         props.addArticle(newArticle)
-        props.getArticles()
         props.setIsEditing(false)
         setValues(initialValues)
     }
@@ -36,32 +32,11 @@ function AddArticle(props) {
 
     return (
         <form>
-            <label>Title</label>
-            <input
-                type='text'
-                name='title'
-                value={values.title}
-                onChange={handleChanges}
-            />
             <label>Article Link</label>
             <input
                 type='text'
                 name='url'
                 value={values.url}
-                onChange={handleChanges}
-            />
-            <label>Image Link</label>
-            <input
-                type='text'
-                name='image'
-                value={values.image}
-                onChange={handleChanges}
-            />
-            <label>Description</label>
-            <input
-                type='text'
-                name='description'
-                value={values.description}
                 onChange={handleChanges}
             />
             <label>Notes</label>

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Board from './Board'
 import AddBoard from './AddBoard'
 import { connect } from 'react-redux'
 import getBoards from '../../actions/getBoards'
 import styled from 'styled-components'
+import getArticles from '../../actions/getArticles'
 
 const StyledBoards = styled.section`
     width: 100%;
@@ -13,12 +14,13 @@ const StyledBoards = styled.section`
 `
 
 function Boards(props) {
-    const { getBoards } = props
+    const { getBoards, getArticles } = props
     const { boards } = props.state.getBoardsReducer
 
     useEffect(() => {
         getBoards()
-    }, [getBoards])
+        getArticles()
+    }, [getBoards, getArticles])
 
     return (
         <StyledBoards className='boards'>
@@ -32,4 +34,4 @@ const mapStateToProps = state => ({
     state
 })
 
-export default connect(mapStateToProps, { getBoards })(Boards)
+export default connect(mapStateToProps, { getBoards, getArticles })(Boards)

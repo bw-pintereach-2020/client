@@ -5,16 +5,14 @@ import { combineReducers } from 'redux'
 import userAuthReducer from './userAuthReducer'
 import addBoardReducer from './addBoardReducer'
 import getBoardsReducer from './getBoardsReducer'
-import addArticleReducer from './addArticleReducer'
-import getArticlesReducer from './getArticlesReducer'
+import articlesReducer from './articlesReducer'
 
 //root reducer
 const rootReducer = combineReducers({
     userAuthReducer,
     addBoardReducer,
     getBoardsReducer,
-    addArticleReducer,
-    getArticlesReducer
+    articlesReducer,
 })
 
 //export reducer
