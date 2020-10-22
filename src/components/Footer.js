@@ -11,13 +11,14 @@ const BottomNav = styled.nav`
     bottom: 0; 
     width: 100%;
     height: 5%;
-    background-color: #119DA4;
+    background-color: #040404;
+    color: #ffffff;
 `;
 
 const NavContents = styled.ul`
     display: flex; 
     justify-content: flex-end;
-    background-color: #119DA4;
+    background-color: #040404;
 `;
 
 const NavItems = styled.li`
