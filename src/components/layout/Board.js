@@ -41,7 +41,7 @@ function Board(props) {
             <div className="board-content">
             {isOpen ? articles.map(article => <Article key={article.id} article={article}/>) : null}            
             {isEditing ? <AddArticle id={props.board.id} setIsEditing={setIsEditing}/> : null}
-            {isOpen ? <button onClick={() => {setIsEditing(true)}}>Add Article</button> : null}
+            {isOpen ? <button className='add-btn' onClick={() => {setIsEditing(true)}}>Add Article</button> : null}
             </div>
         </StyledBoard>
     )
