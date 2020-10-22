@@ -9,11 +9,9 @@ const deleteArticle = (id) => dispatch => {
     axiosWithAuth()
         .delete(`https://pintereach1.herokuapp.com/api/articles/${id}`)
         .then(res => {
-            console.log(res)
             dispatch({ type: DELETE_ARTICLE_SUCCESS, payload: res.data})
         })
         .catch(err => {
-            console.log(err)
             dispatch({ type: DELETE_ARTICLE_FAILURE, payload: err.message})
         })
 }
