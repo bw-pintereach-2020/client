@@ -4,7 +4,7 @@ h1 {
   text-align: center;
   font-family: $fontSecondary;
   line-height: 1.75;
-  margin-top: 8rem;
+  margin-top: 15vh;
   font-weight: 100;
   @include font-size($bigh-font-sizes);
 }
@@ -27,9 +27,15 @@ button {
 
 p,
 input {
-  line-height: 1.75;
+  line-height: 1.5;
   font-family: $fontSecondary;
   @include font-size($h3-font-sizes);
+}
+
+li {
+  line-height: 1.25;
+  font-family: $fontSecondary;
+  @include font-size($p-font-sizes);
 }
 
 .pg {

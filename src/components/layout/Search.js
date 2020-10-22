@@ -36,20 +36,18 @@ export default function Search() {
             })
     }
 
-    return (
+    return ( 
         <section className="home-content">
+            <h2>Explore Your Topic</h2>
             <form className='search-form' onSubmit={onSubmit}>
-                <label>
-                    Search:
-                    <input type='text' name="search" onChange={onChange}/>
-                </label>
+                <input type='text' name="search" placeholder='IRB' onChange={onChange}/>
                 <button>Search</button>
             </form>
             <div className="wiki-list">
                 {initialSearch.map((p, i) => (
-                    <a target="_blank"href={`https://en.wikipedia.org/wiki/${p.title}`}>
+                    <a href={`https://en.wikipedia.org/wiki/${p.title}`} target="_blank" rel="noopener noreferrer">
                     <ul>
-                        <img src="https://img.icons8.com/ios/452/wikipedia.png" alt="wikipedia icon"/>
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/wikipedia-6-555717.png" alt="wikipedia icon"/>
                         <li key={p.i}>{p.title}</li>
                     </ul>
                     </a>

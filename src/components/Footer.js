@@ -5,7 +5,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import NavBar from './NavBar'
 
+const StyledFooter = styled.footer`
+    margin: 55vh auto 0;
+`
+ 
 const BottomNav = styled.nav`
     position: fixed;
     bottom: 0; 
@@ -32,12 +37,15 @@ const FooterLogo = styled.img`
 
 export default function Footer() {
     return (
-        <BottomNav>
-            <NavContents>
-                <Link to="/"><NavItems>Home</NavItems></Link>
-                <Link to="/login"><NavItems>Login</NavItems></Link>
-                <Link to="/register"><NavItems>Register</NavItems></Link>
-            </NavContents>
-        </BottomNav>
+        <StyledFooter>
+          <NavBar/>
+         {/* <BottomNav>
+             <NavContents>
+                 <Link to="/"><NavItems>Home</NavItems></Link>
+                 <Link to="/login"><NavItems>Login</NavItems></Link>
+                 <Link to="/register"><NavItems>Register</NavItems></Link>
+             </NavContents>
+         </BottomNav> */}
+        </StyledFooter>
     );
 }
