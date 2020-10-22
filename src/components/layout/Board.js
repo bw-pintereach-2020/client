@@ -19,17 +19,17 @@ const StyledBoard = styled.div`
 function Board(props) {
     const [isOpen, setIsOpen] = useState(false)
     const [isEditing, setIsEditing] = useState(false)
-    const { articles } = props.state.getArticlesReducer
-    const newArticles = props.state.addArticleReducer.articles
+    const { articles } = props.state.articlesReducer
+    // const newArticles = props.state.addArticleReducer.articles
 
     const toggleOpen = () => {
         setIsOpen(!isOpen)
         props.getArticles()
     }
 
-    useEffect(() => {
-        getArticles()
-    }, [newArticles])
+    // useEffect(() => {
+    //     getArticles()
+    // }, [newArticles])
 
     const sortArticles = () => {
         return articles.map(article => article.board_id === props.board.id ? <Article key={article.id} article={article}/> : null)
