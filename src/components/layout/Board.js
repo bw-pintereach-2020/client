@@ -1,9 +1,8 @@
 //single article board by category, e.g. work
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import AddArticle from './AddArticle'
 import Article from './Article'
-import getArticles from '../../actions/getArticles'
 import styled from 'styled-components'
 
 const StyledBoard = styled.div`
@@ -20,16 +19,10 @@ function Board(props) {
     const [isOpen, setIsOpen] = useState(false)
     const [isEditing, setIsEditing] = useState(false)
     const { articles } = props.state.articlesReducer
-    // const newArticles = props.state.addArticleReducer.articles
 
     const toggleOpen = () => {
         setIsOpen(!isOpen)
-        props.getArticles()
     }
-
-    // useEffect(() => {
-    //     getArticles()
-    // }, [newArticles])
 
     const sortArticles = () => {
         return articles.map(article => article.board_id === props.board.id ? <Article key={article.id} article={article}/> : null)
@@ -52,4 +45,4 @@ const mapStateToProps = state => ({
     state
 })
 
-export default connect(mapStateToProps, { getArticles })(Board)
+export default connect(mapStateToProps, {})(Board)

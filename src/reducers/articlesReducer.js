@@ -20,9 +20,9 @@ function articlesReducer(state = initialState, action) {
         case POST_ARTICLE_START:
             return { ...state, inProgress: true }
         case POST_ARTICLE_SUCCESS:
-            return { ...state, inProgress: false, articles: payload }
+            return { ...state, inProgress: false, articles: payload.articles }
         case POST_ARTICLE_FAILURE:
-            return { ...state, inProgress: false }
+            return { ...state, inProgress: false, error: payload }
         case DELETE_ARTICLE_START:
             return { ...state, inProgress: true }
         case DELETE_ARTICLE_SUCCESS:
