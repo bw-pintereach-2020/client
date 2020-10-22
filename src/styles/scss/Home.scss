@@ -6,6 +6,13 @@
   }
   .home-content {
     margin: 10rem auto;
+    background-color: rgba($color: map-get($colors, app-white), $alpha: 0.65);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    background-attachment: fixed;
+    border-radius: 0.8rem;
+    backdrop-filter: blur(5px);
+    padding: 5rem 2rem;
+    max-width: 1500px;
     h2 {
       text-align: center;
       font-family: $fontSecondary;
@@ -14,11 +21,12 @@
       @include font-size($bigh-font-sizes);
     }
     .content-block {
-      @include font-size($sub-font-sizes);
+      @include font-size($p-font-sizes);
       text-align: center;
       width: 100%;
       max-width: 1300px;
       margin: auto;
+      opacity: 0.98;
       li {
         display: inline-block;
         width: calc(100% / 3);
@@ -26,18 +34,21 @@
           display: inline-block;
           color: map-get($colors, app-white);
           font-weight: bold;
+          width: calc(100% - 20px);
+          margin: 10px;
           figure {
             height: 400px;
             margin: 0;
             line-height: 2;
             position: relative;
-            border: 1px solid map-get($colors, app-dark-green);
             figcaption {
               position: absolute;
               font-family: $fontSecondary;
               bottom: 0;
               width: 100%;
-              background: map-get($colors, app-green);
+              padding: 0.5rem;
+              background: map-get($colors, app-dark);
+              color: map-get($colors, app-white);
             }
             img {
               width: 100%;
