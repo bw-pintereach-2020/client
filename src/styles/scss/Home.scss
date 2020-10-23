@@ -10,20 +10,6 @@
     padding: 0 30%;
     .search-form {
       margin: 0 0 50px;
-<<<<<<< HEAD
-      label {
-        font-size: 20px;
-
-        input {
-          font-size: 18px;
-          border-radius: 30px;
-          width: 200px;
-          height: 30px;
-          margin-left: 10px;
-          padding-left: 15px;
-          outline: none;
-        }
-=======
 
       input {
         @include font-size($h3-font-sizes);
@@ -33,7 +19,6 @@
         line-height: 1.75;
         padding: 0.5rem 1rem;
         outline: none;
->>>>>>> de6ce05a4bbcb674c4fdc11eedd1f92485fce6d5
       }
 
       button {
