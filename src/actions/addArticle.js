@@ -9,11 +9,9 @@ const addArticle = (article) => dispatch => {
     axiosWithAuth()
         .post('https://pintereach1.herokuapp.com/api/articles', article)
         .then(res => {
-            console.log(res)
             dispatch({ type: POST_ARTICLE_SUCCESS, payload: res.data})
         })
         .catch(err => {
-            console.log(err)
             dispatch({ type: POST_ARTICLE_FAILURE, payload: err.message})
         })
 }

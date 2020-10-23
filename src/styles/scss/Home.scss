@@ -5,11 +5,12 @@
     font-style: italic;
   }
   .home-content {
-    margin: 50px 0;
+    margin: 20rem 0;
     text-align: center;
     padding: 0 30%;
     .search-form {
       margin: 0 0 50px;
+<<<<<<< HEAD
       label {
         font-size: 20px;
 
@@ -22,12 +23,24 @@
           padding-left: 15px;
           outline: none;
         }
+=======
+
+      input {
+        @include font-size($h3-font-sizes);
+        border-radius: 0.8rem;
+        width: 200px;
+        margin-left: 10px;
+        line-height: 1.75;
+        padding: 0.5rem 1rem;
+        outline: none;
+>>>>>>> de6ce05a4bbcb674c4fdc11eedd1f92485fce6d5
       }
 
       button {
-        padding: 6px 10px;
+        @include font-size($h3-font-sizes);
+        padding: 0.5rem 2rem;
         margin: 0 10px;
-        border-radius: 20px;
+        border-radius: 0.8rem;
         outline: none;
       }
     }
@@ -42,21 +55,22 @@
 
         &:visited {
           color: black;
-      }
-          ul {
-            display: flex;
-            background-color: #c6c9bd;
-            width: 380px;
-            height: 100px;
-            margin: 10px;
-            border-radius: 20px;
-            border: 4px solid black;
+        }
+        ul {
+          display: flex;
+          text-align: left;
+          background-color: #c6c9bd;
+          width: 380px;
+          height: 100px;
+          margin: 10px;
+          border-radius: 0.8rem;
+          border: 4px solid black;
 
-            &:hover {
-              border-color: #119DA4;
-              color: #119DA4;
-            }
+          &:hover {
+            border-color: map-get($colors, app-blue);
+            color: map-get($colors, app-blue);
           }
+        }
         img {
           width: 28%;
           background-color: #c6c9bd;
@@ -71,21 +85,30 @@
         }
       }
     }
-    margin: 10rem auto;
+    margin: 15rem auto;
+    background-color: rgba($color: map-get($colors, app-white), $alpha: 0.65);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    background-attachment: fixed;
+    border-radius: 0.8rem;
+    backdrop-filter: blur(5px);
+    padding: 5rem 2rem;
+    max-width: 1500px;
     h2 {
       text-align: center;
       font-family: $fontSecondary;
       line-height: 1.25;
       font-weight: 300;
+      margin: 2rem auto 5rem;
       @include font-size($bigh-font-sizes);
     }
 
     .content-block {
-      @include font-size($sub-font-sizes);
+      @include font-size($p-font-sizes);
       text-align: center;
       width: 100%;
       max-width: 1300px;
       margin: auto;
+      opacity: 0.98;
       li {
         display: inline-block;
         width: calc(100% / 3);
@@ -94,19 +117,21 @@
           display: inline-block;
           color: map-get($colors, app-white);
           font-weight: bold;
-
+          width: calc(100% - 20px);
+          margin: 10px;
           figure {
             height: 400px;
             margin: 0;
             line-height: 2;
             position: relative;
-            border: 1px solid map-get($colors, app-dark-green);
             figcaption {
               position: absolute;
               font-family: $fontSecondary;
               bottom: 0;
               width: 100%;
-              background: map-get($colors, app-green);
+              padding: 0.5rem;
+              background: map-get($colors, app-dark);
+              color: map-get($colors, app-white);
             }
 
             img {

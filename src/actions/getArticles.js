@@ -14,6 +14,6 @@ const getArticles = () => dispatch => {
         .catch(({ response: { data } }) => {
             dispatch({ type: GET_ARTICLES_FAILURE, payload: data.message})
         })
-}
+} 
 
 export default getArticles

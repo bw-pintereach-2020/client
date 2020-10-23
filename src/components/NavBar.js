@@ -5,12 +5,13 @@ import logoutUser from '../actions/logoutUser';
 import { connect } from 'react-redux'
 
 const StyledNav = styled.nav`
+    padding: .75rem 0;
     display: flex; 
     justify-content: flex-end;
-    background-color: #119DA4;
+    background-color: #040404;
 
     a {
-        color: #eeeeee; 
+        color: #ffffff; 
         padding: 10px 35px;
     }
 `;
