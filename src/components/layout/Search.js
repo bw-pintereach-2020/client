@@ -3,15 +3,15 @@ import axios from 'axios';
 import '../../styles/scss/Home.scss'
 
 export default function Search() {
-    const [initialSearch, setinitialSearch] = useState([]);
-    const [userSearch, setUserSearch] = useState('news channels');
+    const [data, setData] = useState([]);
+    const [userSearch, setUserSearch] = useState('');
 
     useEffect(() => {
         const getSearch = () => {
-            axios.get(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${userSearch}&origin=*`)
+            axios.get(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=news_channels&origin=*`)
                 .then(res => {
                     console.log(res.data.query.search, 'axios call')
-                    setinitialSearch(res.data.query.search);
+                    setData(res.data.query.search);
                 })
                 .catch(err => {
                     alert("err");
@@ -29,11 +29,12 @@ export default function Search() {
         e.preventDefault();
         axios.get(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${userSearch}&origin=*`)
             .then((res) => {
-                setinitialSearch(res.data.query.search);
+                setData(res.data.query.search);
             })
             .catch((err) => {
                 alert(err);
             })
+            setUserSearch('');
     }
 
     return (
@@ -41,12 +42,12 @@ export default function Search() {
             <form className='search-form' onSubmit={onSubmit}>
                 <label>
                     Search:
-                    <input type='text' name="search" onChange={onChange}/>
+                    <input type='text' name="search" onChange={onChange} value={userSearch}/>
                 </label>
                 <button>Search</button>
             </form>
             <div className="wiki-list">
-                {initialSearch.map((p, i) => (
+                {data.map((p, i) => (
                     <a target="_blank"href={`https://en.wikipedia.org/wiki/${p.title}`}>
                     <ul>
                         <img src="https://img.icons8.com/ios/452/wikipedia.png" alt="wikipedia icon"/>
